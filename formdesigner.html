@@ -1,0 +1,2818 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDCflow Foundation Styling</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="assets/js/jquery.js"></script>
+    <!-- Javascript and CSS for the colorpickers. -->
+    <script src='assets/js/spectrum.js'></script>
+    <link rel='stylesheet' href='assets/css/spectrum.css' />
+  </head>
+  <body>
+    
+    <!-- This is the link that will get updated by the Custom font URL field. -->
+    <link id="fontUrlLink" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css">
+    <!-- This is the default style block for the Payment Form. It contains all styling needed for the form(s) to display allowing the iframe page to be separated from the bloated Foundation app.css. -->
+    <style type="text/css">
+    	#pdcFormContainer {
+    		/* This ID must be placed on the <body> of the actual iframe page in order for the responsive styling to work. */
+    		height:100%;
+    		margin:0;
+    		width:100%;
+    	}
+    	#pdcForm {
+    		box-sizing:border-box;
+    		color:#666666;
+    		float:left;
+    		padding:10px;
+    		-webkit-font-smoothing:subpixel-antialiased;
+    		-moz-osx-font-smoothing:subpixel-antialiased;
+    
+    		font-family:'Lato', 'Helvetica Neue', Helvetica, 'Roboto', Arial, sans-serif;
+    		font-weight:normal;
+    		line-height:1.8;
+    	}
+    	#pdcForm .hide {
+    		display:none;
+    	}
+    	#pdcForm .formElement {
+    		box-sizing:border-box;
+    		float:left;
+    		width:100%;
+    
+    		padding:10px;
+    	}
+    	#pdcForm label {
+    		font-family:inherit;
+    		font-weight:inherit;
+    		line-height:inherit;
+    		overflow:hidden;
+    		text-overflow:ellipsis;
+    		white-space:nowrap;
+    
+    		color:#666666;
+    		display:block;
+    		font-size:12px;
+    		margin:0;
+    		text-transform:none;
+    	}
+    	#pdcForm input.customStyled, #pdcForm input[type=text].customStyled, #pdcForm input[type=password].customStyled, #pdcForm input[type=date].customStyled, #pdcForm input[type=datetime].customStyled, #pdcForm input[type=datetime-local].customStyled, #pdcForm input[type=month].customStyled, #pdcForm input[type=week].customStyled, #pdcForm input[type=email].customStyled, #pdcForm input[type=number].customStyled, #pdcForm input[type=search].customStyled, #pdcForm input[type=tel].customStyled, #pdcForm input[type=time].customStyled, #pdcForm input[type=url].customStyled, #pdcForm input[type=color].customStyled, #pdcForm textarea.customStyled {
+    		-moz-appearance:none;
+    		-webkit-appearance:none;
+    		box-sizing:border-box;
+    		display:block;
+    		font-family:inherit;
+    		line-height:inherit;
+    		margin:0;
+    		transition:box-shadow .5s,border-color .25s ease-in-out;
+    		width: 100%;
+    
+    		background-color:#fefefe;
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		box-shadow:inset 0 0 4px rgba(10,10,10,0.1);
+    		color:#666666;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    		text-transform:none;
+    	}
+    	#pdcForm input:focus.customStyled, #pdcForm input[type=text]:hover.customStyled, #pdcForm input[type=email]:hover.customStyled, #pdcForm input[type=password]:hover.customStyled, #pdcForm input[type=tel]:hover.customStyled, #pdcForm input[type=number]:hover.customStyled, #pdcForm input[type=url]:hover.customStyled, #pdcForm select:hover.customStyled, #pdcForm textarea:hover.customStyled, #pdcForm input:focus.customStyled, #pdcForm input[type=text]:focus.customStyled, #pdcForm input[type=password]:focus.customStyled, #pdcForm input[type=date]:focus.customStyled, #pdcForm input[type=datetime]:focus.customStyled, #pdcForm input[type=datetime-local]:focus.customStyled, #pdcForm input[type=month]:focus.customStyled, #pdcForm input[type=week]:focus.customStyled, #pdcForm input[type=email]:focus.customStyled, #pdcForm input[type=number]:focus.customStyled, #pdcForm input[type=search]:focus.customStyled, #pdcForm input[type=tel]:focus.customStyled, #pdcForm input[type=time]:focus.customStyled, #pdcForm input[type=url]:focus.customStyled, #pdcForm input[type=color]:focus.customStyled, #pdcForm textarea:focus.customStyled {
+    		outline:0;
+    
+    		background-color:#ffffff;
+    		border-color:#0000EE;
+    		box-shadow:0 0 4px rgba(10,10,10,0.15);
+    	}
+    	#pdcForm select {
+    		-moz-appearance:none;
+    		-webkit-appearance:none;
+    		background: none;
+    		box-sizing:border-box;
+    		cursor:pointer;
+    		font-family:inherit;
+    		line-height:1;
+    		margin:0;
+    		transition:box-shadow .5s,border-color .25s ease-in-out;
+    		width:100%;
+    
+    
+    		background-color:#fefefe;
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		box-shadow:inset 0 0 4px rgba(10,10,10,0.1);
+    		color:#666666;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    		padding-right:25px;
+    	}
+    	#pdcForm select:hover {
+    		outline:0;
+    
+    		background-color:#ffffff;
+    		border-color:#0000EE;
+    		box-shadow:0 0 4px rgba(10,10,10,0.15);
+    	}
+    	#pdcForm .selectArrow {
+    		position:relative;
+    	}
+    	#pdcForm .selectArrow::after {
+    		color:#666;
+    		content:"▼";
+    		cursor:pointer;
+    		font-size:0.6rem;
+    		margin-top:-7px;
+    		pointer-events:none;
+    		position:absolute;
+    		right:10px;
+    		top:50%;
+    	}
+    	#pdcForm button {
+    		-moz-appearance:none;
+    		-webkit-appearance:none;
+    		border-color:#0000EE;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		border:none;
+    		cursor:pointer;
+    		display:inline-block;
+    		font-family:inherit;
+    		line-height:1;
+    		margin:0;
+    		transition:background-color .25s ease-out,color .25s ease-out;
+    
+    		background-color:#0000EE;
+    		color: #fefefe;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    	}
+    	#pdcForm button:hover {
+    		border:none;
+    		outline:0;
+    
+    		background-color:#486cee;
+    	}
+    	#pdcForm button small {
+    		float:left;
+    		margin-top:0.1rem;
+    		padding-right:6px;
+    	}
+    	#pdcForm button small.hide {
+    		display:none;
+    	}
+    	#pdcForm label.required::after {
+    		color: #ec5840;
+    		content: "\0020\002A";
+    		font-weight: 700;
+    	}
+    	#pdcForm p.required {
+    		line-height:inherit;
+    		margin:0;
+    
+    		font-size:0.75rem;
+    		margin-top:10px;
+    	}
+    	#pdcForm p.required::before {
+    		color: #ec5840;
+    		content: "\0020\002A";
+    		font-weight: 700;
+    	}
+    	#pdcForm .paymentContainer {
+    		box-sizing:border-box;
+    		float:left;
+    		width:100%;
+    
+    		padding:10px;
+    	}
+    	#pdcForm .paymentInfo {
+    		box-sizing:border-box;
+    		float:left;
+    		width:100%;
+    
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		padding:10px;
+    	}
+    	#pdcForm .paymentInfo p {
+    		line-height:inherit;
+    		margin:0;
+    
+    		font-size:16px;
+    		padding-left:10px;
+    		padding-right:10px;
+    	}
+    	#pdcForm .paymentInfo .paymentType {
+    		display:none;
+    	}
+    	#pdcForm .paymentInfo .paymentType label {
+    		float:left;
+    		margin-right:20px;
+    	}
+    	#pdcForm .paymentInfo .paymentType input[type=radio] {
+    		margin:0 5px;
+    	}
+    	#pdcForm #cardInfo {
+    		width:100%;
+    	}
+    	#pdcForm #cardInfo #cardNumber {
+    		min-width:36%;
+    	}
+    	#pdcForm #cardInfo #cardExpiration {
+    		min-width:40%;
+    	}
+    	#pdcForm #cardExtraInfo {
+    		padding:0;
+    		width:100%;
+    	}
+    	#pdcForm #checkBankInfo {
+    		width:100%;
+    	}
+    	#pdcForm #cardAddress::after, #pdcForm #cardAddress::before, #pdcForm #checkAddress::after, #pdcForm #checkAddress::before {
+    		clear:both;
+    		content:'';
+    		display:block;
+    	}
+    	#pdcForm .formElement#cardStateCountry, #pdcForm .formElement#cardZips, #pdcForm .formElement#checkStateCountry, #pdcForm .formElement#checkZips {
+    		padding:0;
+    	}
+    	#pdcForm #cardForm, #pdcForm #checkForm {
+    		display:none;
+    		float:left;
+    		width:100%;
+    	}
+    	#pdcForm.creditCard #cardForm {
+    		display:block;
+    	}
+    	#pdcForm.creditCard .formElement#cardExpiration {
+    		width:100%;
+    	}
+    	#pdcForm.creditCard .formElement#cardExpiration div {
+    		float:left;
+    		margin:0 4% 0 0;
+    		width:48%;
+    	}
+    	#pdcForm.creditCard .formElement#cardExpiration div:last-child {
+    		margin:0;
+    	}
+    	#pdcForm.check #checkForm {
+    		display:block;
+    	}
+    	#pdcForm.combined .paymentInfo .paymentType {
+    		display:block;
+    	}
+    	#pdcForm input::-webkit-input-placeholder, #pdcForm textarea::-webkit-input-placeholder {
+    		color:#cccccc;
+    	}
+    	#pdcForm input::-moz-placeholder, #pdcForm textarea::-moz-placeholder {
+    		color:#cccccc;
+    	}
+    	#pdcForm input:-ms-input-placeholder, #pdcForm textarea:-ms-input-placeholder {
+    		color:#cccccc;
+    	}
+    	#pdcForm input:hover::-webkit-input-placeholder, #pdcForm textarea:hover::-webkit-input-placeholder, #pdcForm input:focus::-webkit-input-placeholder, #pdcForm textarea:focus::-webkit-input-placeholder {
+    		color:#c3c3c3;
+    	}
+    	#pdcForm input:hover::-moz-placeholder, #pdcForm textarea:hover::-moz-placeholder, #pdcForm input:focus::-moz-placeholder, #pdcForm textarea:focus::-moz-placeholder {
+    		color:#c3c3c3;
+    	}
+    	#pdcForm input:hover:-ms-input-placeholder, #pdcForm textarea:hover:-ms-input-placeholder, #pdcForm input:focus:-ms-input-placeholder, #pdcForm textarea:focus:-ms-input-placeholder {
+    		color:#c3c3c3;
+    	}
+    	@media (min-width: 700px) {
+    		/* Medium screen styling */
+    		#pdcFormContainer #pdcForm .formElement {
+    			width:50%;
+    		}
+    		#pdcFormContainer #pdcform .formElement#paymentType {
+    			width:100%;
+    		}
+    		/* Card Form */
+    		#pdcFormContainer #pdcForm .formElement#cardPayment, #pdcFormContainer #pdcForm .formElement#cardFee, #pdcFormContainer #pdcForm .formElement#cardTotal {
+    			width:33.33333%;
+    		}
+    		#pdcFormContainer #pdcForm #cardInfo, #pdcFormContainer #pdcForm #cardExtraInfo {
+    			display:flex;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#cardStateCountry, #pdcFormContainer #pdcForm .formElement#cardZips {
+    			display:flex;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#cardStateCountry .formElement, #pdcFormContainer #pdcForm .formElement#cardZips .formElement {
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#cardSubmit {
+    			clear:both;
+    		}
+    		/* Check Form */
+    		#pdcFormContainer #pdcForm .formElement#checkPayment, #pdcFormContainer #pdcForm .formElement#checkFee, #pdcFormContainer #pdcForm .formElement#checkTotal {
+    			width:33.33333%;
+    		}
+    		#pdcFormContainer #pdcForm #checkBankInfo {
+    			display:flex;
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkBankAccount, #pdcFormContainer #pdcForm .formElement#checkBankAccountConfirm, #pdcFormContainer #pdcForm .formElement#checkBankRouting {
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkStateCountry, #pdcFormContainer #pdcForm .formElement#checkZips {
+    			display:flex;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkStateCountry .formElement, #pdcFormContainer #pdcForm .formElement#checkZips .formElement {
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkSubmit {
+    			clear:both;
+    		}
+    	}
+    	@media (min-width: 1050px) {
+    		/* Large screen styling */
+    		#pdcFormContainer #pdcForm .formElement {
+    			width:33.33333%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#cardMemo {
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#cardStateCountry, #pdcFormContainer #pdcForm .formElement#cardZips {
+    			width:50%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkMemo {
+    			width:100%;
+    		}
+    		#pdcFormContainer #pdcForm .formElement#checkStateCountry, #pdcFormContainer #pdcForm .formElement#checkZips {
+    			width:50%;
+    		}
+    	}
+    </style>
+    <!-- This is the style block that will be updated by the Styles form fields. It is currently being saved into a hidden input field when the Save button is clicked. -->
+    <style type="text/css">
+    	#pdcForm {
+    		font-family:'Lato', 'Helvetica Neue', Helvetica, 'Roboto', Arial, sans-serif;
+    		font-weight:normal;
+    		line-height:1.8;
+    	}
+    	#pdcForm .formElement {
+    		padding:10px;
+    	}
+    	#pdcForm label {
+    		color:#666666;
+    		font-size:12px;
+    		text-transform:none;
+    	}
+    	#pdcForm input.customStyled, #pdcForm input[type=text].customStyled, #pdcForm input[type=password].customStyled, #pdcForm input[type=date].customStyled, #pdcForm input[type=datetime].customStyled, #pdcForm input[type=datetime-local].customStyled, #pdcForm input[type=month].customStyled, #pdcForm input[type=week].customStyled, #pdcForm input[type=email].customStyled, #pdcForm input[type=number].customStyled, #pdcForm input[type=search].customStyled, #pdcForm input[type=tel].customStyled, #pdcForm input[type=time].customStyled, #pdcForm input[type=url].customStyled, #pdcForm input[type=color].customStyled, #pdcForm textarea.customStyled {
+    		background-color:#fefefe;
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		box-shadow:inset 0 0 4px rgba(10,10,10,0.1);
+    		color:#666666;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    		text-transform:none;
+    	}
+    	#pdcForm input:focus.customStyled, #pdcForm input[type=text]:hover.customStyled, #pdcForm input[type=email]:hover.customStyled, #pdcForm input[type=password]:hover.customStyled, #pdcForm input[type=tel]:hover.customStyled, #pdcForm input[type=number]:hover.customStyled, #pdcForm input[type=url]:hover.customStyled, #pdcForm select:hover.customStyled, #pdcForm textarea:hover.customStyled, #pdcForm input:focus.customStyled, #pdcForm input[type=text]:focus.customStyled, #pdcForm input[type=password]:focus.customStyled, #pdcForm input[type=date]:focus.customStyled, #pdcForm input[type=datetime]:focus.customStyled, #pdcForm input[type=datetime-local]:focus.customStyled, #pdcForm input[type=month]:focus.customStyled, #pdcForm input[type=week]:focus.customStyled, #pdcForm input[type=email]:focus.customStyled, #pdcForm input[type=number]:focus.customStyled, #pdcForm input[type=search]:focus.customStyled, #pdcForm input[type=tel]:focus.customStyled, #pdcForm input[type=time]:focus.customStyled, #pdcForm input[type=url]:focus.customStyled, #pdcForm input[type=color]:focus.customStyled, #pdcForm textarea:focus.customStyled {
+    		background-color:#ffffff;
+    		border-color:#0000EE;
+    		box-shadow:0 0 4px rgba(10,10,10,0.15);
+    	}
+    	#pdcForm select {
+    		background-color:#fefefe;
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		box-shadow:inset 0 0 4px rgba(10,10,10,0.1);
+    		color:#666666;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    		padding-right:25px;
+    	}
+    	#pdcForm select:hover {
+    		background-color:#ffffff;
+    		border-color:#0000EE;
+    		box-shadow:0 0 4px rgba(10,10,10,0.15);
+    	}
+    	#pdcForm .selectArrow::after {
+    		color:#666;
+    		right:10px;
+    	}
+    	#pdcForm button {
+    		background-color:#0000EE;
+    		color: #fefefe;
+    		font-size:16px;
+    		height:40px;
+    		padding:10px;
+    	}
+    	#pdcForm button:hover {
+    		background-color:#486cee;
+    	}
+    	#pdcForm button small.hide {
+    		display:none;
+    	}
+    	#pdcForm p.required {
+    		font-size:0.75rem;
+    		margin-top:10px;
+    	}
+    	#pdcForm .paymentContainer {
+    		padding:10px;
+    	}
+    	#pdcForm .paymentInfo {
+    		border-color:#cccccc;
+    		border-radius:3px;
+    		border-style:solid;
+    		border-width:1px;
+    		padding:10px;
+    	}
+    	#pdcForm .paymentInfo p {
+    		font-size:16px;
+    		padding-left:10px;
+    		padding-right:10px;
+    	}
+    </style>
+    <section id="formDesigner" class="small-12" style="margin:40px auto 0; max-width:1200px;">
+    	<aside id="editor">
+    		<form class="float-left small-12">
+    			<ul class="tabs" data-tabs id="editorTabs">
+    				<li class="tabs-title is-active"><a href="#fieldsList" aria-selected="true">Fields</a></li>
+    				<li class="tabs-title"><a href="#stylesList">Styles</a></li>
+    			</ul>
+    			<div class="tabs-content" data-tabs-content="editorTabs" id="tabsLists">
+    				<div class="tabs-panel is-active" id="fieldsList">
+    					<div id="searchFields" class="column">
+    						<input type="search" placeholder="Search field labels" id="fieldValueSearch" name="fieldValueSearch" value="">
+    					</div>
+    					<div class="accordionToggle" id="cardToggle" data-for="cardAccordion">
+    						<a href="" class="expandAll">Expand All</a>
+    						<a href="" class="collapseAll">Collapse All</a>
+    					</div>
+    					<h5 id="cardTitle">Credit Card Form</h5>
+    					<div id="cardAccordion" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+    						<div id="cardPaymentAccordion" class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Payment ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Payment ($)" id="cardPaymentEdit" name="cardPaymentEdit" value="" data-for="cardPayment">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Fee ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Fee ($)" id="cardFeeEdit" name="cardFeeEdit" value="" data-for="cardFee">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Total ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Total ($)" id="cardTotalEdit" name="cardTotalEdit" value="" data-for="cardTotal">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Card number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Card number" id="cardNumberEdit" name="cardNumberEdit" value="" data-for="cardNumber">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Expiration date</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Expiration date" id="cardExpirationEdit" name="cardExpirationEdit" value="" data-for="cardExpiration">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Security code</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Security code" id="cardSecurityEdit" name="cardSecurityEdit" value="" data-for="cardSecurityCode">
+    								<div class="radio-group clearfix">
+    									<label for="cardSecurityHide" class="label-left rb-03">
+    										<input type="radio" name="cardSecurityCode" value="hide" id="cardSecurityHide" class="toggle-radios" data-for="cardSecurityCode" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardSecurityShow" class="label-right rb-03">
+    										<input type="radio" name="cardSecurityCode" value="show" checked="checked" id="cardSecurityShow" class="toggle-radios" data-for="cardSecurityCode" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardSecurityRequired" class="label-right rb-03">
+    										<input type="radio" name="cardSecurityCode" value="required" id="cardSecurityRequired" class="toggle-radios" data-for="cardSecurityCode" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">First name</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="First name" id="cardFirstNameEdit" name="cardFirstNameEdit" value="" data-for="cardFirstName">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Last name</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Last name" id="cardLastNameEdit" name="cardLastNameEdit" value="" data-for="cardLastName">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Account number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Account number" id="cardAccountEdit" name="cardAccountEdit" value="" data-for="cardAccount">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Memo</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Memo" id="cardMemoEdit" name="cardMemoEdit" value="" data-for="cardMemo">
+    								<div class="radio-group clearfix">
+    									<label for="cardMemoHide" class="label-left rb-03">
+    										<input type="radio" name="cardMemo" value="hide" id="cardMemoHide" class="toggle-radios" data-for="cardMemo" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardMemoShow" class="label-right rb-03">
+    										<input type="radio" name="cardMemo" value="show" checked="checked" id="cardMemoShow" class="toggle-radios" data-for="cardMemo" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardMemoRequired" class="label-right rb-03">
+    										<input type="radio" name="cardMemo" value="required" id="cardMemoRequired" class="toggle-radios" data-for="cardMemo" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Address 1</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Address 1" id="cardAddressOneEdit" name="cardAddressOneEdit" value="" data-for="cardAddressOne">
+    								<div class="radio-group clearfix">
+    									<label for="cardAddressOneHide" class="label-left rb-03">
+    										<input type="radio" name="cardAddressOne" value="hide" id="cardAddressOneHide" class="toggle-radios" data-for="cardAddressOne" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardAddressOneShow" class="label-right rb-03">
+    										<input type="radio" name="cardAddressOne" value="show" checked="checked" id="cardAddressOneShow" class="toggle-radios" data-for="cardAddressOne" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardAddressOneRequired" class="label-right rb-03">
+    										<input type="radio" name="cardAddressOne" value="required" id="cardAddressOneRequired" class="toggle-radios" data-for="cardAddressOne" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Address 2</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Address 2" id="cardAddressTwoEdit" name="cardAddressTwoEdit" value="" data-for="cardAddressTwo">
+    								<div class="radio-group clearfix">
+    									<label for="cardAddressTwoHide" class="label-left rb-03">
+    										<input type="radio" name="cardAddressTwo" value="hide" id="cardAddressTwoHide" class="toggle-radios" data-for="cardAddressTwo" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardAddressTwoShow" class="label-right rb-03">
+    										<input type="radio" name="cardAddressTwo" value="show" checked="checked" id="cardAddressTwoShow" class="toggle-radios" data-for="cardAddressTwo" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardAddressTwoRequired" class="label-right rb-03">
+    										<input type="radio" name="cardAddressTwo" value="required" id="cardAddressTwoRequired" class="toggle-radios" data-for="cardAddressTwo" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">City</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="City" id="cardCityEdit" name="cardCityEdit" value="" data-for="cardCity">
+    								<div class="radio-group clearfix">
+    									<label for="cardCityHide" class="label-left rb-03">
+    										<input type="radio" name="cardCity" value="hide" id="cardCityHide" class="toggle-radios" data-for="cardCity" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardCityShow" class="label-right rb-03">
+    										<input type="radio" name="cardCity" value="show" checked="checked" id="cardCityShow" class="toggle-radios" data-for="cardCity" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardCityRequired" class="label-right rb-03">
+    										<input type="radio" name="cardCity" value="required" id="cardCityRequired" class="toggle-radios" data-for="cardCity" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">State</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="State" id="cardStateEdit" name="cardStateEdit" value="" data-for="cardState">
+    								<div class="radio-group clearfix">
+    									<label for="cardStateHide" class="label-left rb-03">
+    										<input type="radio" name="cardState" value="hide" id="cardStateHide" class="toggle-radios" data-for="cardState" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardStateShow" class="label-right rb-03">
+    										<input type="radio" name="cardState" value="show" checked="checked" id="cardStateShow" class="toggle-radios" data-for="cardState" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardStateRequired" class="label-right rb-03">
+    										<input type="radio" name="cardState" value="required" id="cardStateRequired" class="toggle-radios" data-for="cardState" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Country</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Country" id="cardCountryEdit" name="cardCountryEdit" value="" data-for="cardCountry">
+    								<div class="radio-group clearfix">
+    									<label for="cardCountryHide" class="label-left rb-03">
+    										<input type="radio" name="cardCountry" value="hide" id="cardCountryHide" class="toggle-radios" data-for="cardCountry" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardCountryShow" class="label-right rb-03">
+    										<input type="radio" name="cardCountry" value="show" checked="checked" id="cardCountryShow" class="toggle-radios" data-for="cardCountry" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardCountryRequired" class="label-right rb-03">
+    										<input type="radio" name="cardCountry" value="required" id="cardCountryRequired" class="toggle-radios" data-for="cardCountry" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Zip</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Zip" id="cardZipEdit" name="cardZipEdit" value="" data-for="cardZip">
+    								<div class="radio-group clearfix">
+    									<label for="cardZipHide" class="label-left rb-03">
+    										<input type="radio" name="cardZip" value="hide" id="cardZipHide" class="toggle-radios" data-for="cardZip" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardZipShow" class="label-right rb-03">
+    										<input type="radio" name="cardZip" value="show" checked="checked" id="cardZipShow" class="toggle-radios" data-for="cardZip" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardZipRequired" class="label-right rb-03">
+    										<input type="radio" name="cardZip" value="required" id="cardZipRequired" class="toggle-radios" data-for="cardZip" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Zip plus 4</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Zip plus 4" id="cardZipFourEdit" name="cardZipFourEdit" value="" data-for="cardZipFour">
+    								<div class="radio-group clearfix">
+    									<label for="cardZipFourHide" class="label-left rb-03">
+    										<input type="radio" name="cardZipFour" value="hide" id="cardZipFourHide" class="toggle-radios" data-for="cardZipFour" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardZipFourShow" class="label-right rb-03">
+    										<input type="radio" name="cardZipFour" value="show" checked="checked" id="cardZipFourShow" class="toggle-radios" data-for="cardZipFour" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardZipFourRequired" class="label-right rb-03">
+    										<input type="radio" name="cardZipFour" value="required" id="cardZipFourRequired" class="toggle-radios" data-for="cardZipFour" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Email address</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Email address" id="cardEmailEdit" name="cardEmail" value="" data-for="cardEmail">
+    								<div class="radio-group clearfix">
+    									<label for="cardEmailHide" class="label-left rb-03">
+    										<input type="radio" name="cardEmail" value="hide" id="cardEmailHide" class="toggle-radios" data-for="cardEmail" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardEmailShow" class="label-right rb-03">
+    										<input type="radio" name="cardEmail" value="show" checked="checked" id="cardEmailShow" class="toggle-radios" data-for="cardEmail" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardEmailRequired" class="label-right rb-03">
+    										<input type="radio" name="cardEmail" value="required" id="cardEmailRequired" class="toggle-radios" data-for="cardEmail" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Phone number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Phone number" id="cardPhoneEdit" name="cardPhoneEdit" value="" data-for="cardPhone">
+    								<div class="radio-group clearfix">
+    									<label for="cardPhoneHide" class="label-left rb-03">
+    										<input type="radio" name="cardPhone" value="hide" id="cardPhoneHide" class="toggle-radios" data-for="cardPhone" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="cardPhoneShow" class="label-right rb-03">
+    										<input type="radio" name="cardPhone" value="show" checked="checked" id="cardPhoneShow" class="toggle-radios" data-for="cardPhone" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="cardPhoneRequired" class="label-right rb-03">
+    										<input type="radio" name="cardPhone" value="required" id="cardPhoneRequired" class="toggle-radios" data-for="cardPhone" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="accordionToggle" id="checkToggle" data-for="checkAccordion">
+    						<a href="" class="expandAll">Expand All</a>
+    						<a href="" class="collapseAll">Collapse All</a>
+    					</div>
+    					<h5 id="checkTitle">Check Form</h5>
+    					<div id="checkAccordion" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Payment ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Payment ($)" id="checkPaymentEdit" name="checkPaymentEdit" value="" data-for="checkPayment">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Fee ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Fee ($)" id="checkFeeEdit" name="checkFeeEdit" value="" data-for="checkFee">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Total ($)</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Total ($)" id="checkTotalEdit" name="checkTotalEdit" value="" data-for="checkTotal">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Bank account number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Bank account number" id="checkBankAccountEdit" name="checkBankAccountEdit" value="" data-for="checkBankAccount">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Confirm bank account number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Confirm bank account number" id="checkBankAccountConfirmEdit" name="checkBankAccountConfirmEdit" value="" data-for="checkBankAccountConfirm">
+    								<div class="radio-group clearfix">
+    									<label for="checkBankConfirmHide" class="label-left rb-02">
+    										<input type="radio" name="checkBankAccountConfirm" value="hide" id="checkBankConfirmHide" class="toggle-radios" data-for="checkBankAccountConfirm" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkMemoRequired" class="label-right rb-02">
+    										<input type="radio" name="checkBankAccountConfirm" value="required" checked="checked" id="checkMemoRequired" class="toggle-radios" data-for="checkBankAccountConfirm" data-remove="hide" data-set="show" data-require="true">
+    										<span>Show</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Bank routing number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Bank routing number" id="checkBankRoutingEdit" name="checkBankRoutingEdit" value="" data-for="checkBankRouting">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Check number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Check number" id="checkNumberEdit" name="checkNumberEdit" value="" data-for="checkNumber">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">First name</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="First name" id="checkFirstNameEdit" name="checkFirstNameEdit" value="" data-for="checkFirstName">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Last name</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Last name" id="checkLastNameEdit" name="checkLastNameEdit" value="" data-for="checkLastName">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Account number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Account number" id="checkAccountEdit" name="checkAccountEdit" value="" data-for="checkAccount">
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Memo</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Memo" id="checkMemoEdit" name="checkMemoEdit" value="" data-for="checkMemo">
+    								<div class="radio-group clearfix">
+    									<label for="checkMemoHide" class="label-left rb-03">
+    										<input type="radio" name="checkMemo" value="hide" id="checkMemoHide" class="toggle-radios" data-for="checkMemo" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkMemoShow" class="label-right rb-03">
+    										<input type="radio" name="checkMemo" value="show" checked="checked" id="checkMemoShow" class="toggle-radios" data-for="checkMemo" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkMemoRequired" class="label-right rb-03">
+    										<input type="radio" name="checkMemo" value="required" id="checkMemoRequired" class="toggle-radios" data-for="checkMemo" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Address 1</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Address 1" id="checkAddressOneEdit" name="checkAddressOneEdit" value="" data-for="checkAddressOne">
+    								<div class="radio-group clearfix">
+    									<label for="checkAddressOneHide" class="label-left rb-03">
+    										<input type="radio" name="checkAddressOne" value="hide" id="checkAddressOneHide" class="toggle-radios" data-for="checkAddressOne" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkAddressOneShow" class="label-right rb-03">
+    										<input type="radio" name="checkAddressOne" value="show" checked="checked" id="checkAddressOneShow" class="toggle-radios" data-for="checkAddressOne" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkAddressOneRequired" class="label-right rb-03">
+    										<input type="radio" name="checkAddressOne" value="required" id="checkAddressOneRequired" class="toggle-radios" data-for="checkAddressOne" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Address 2</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Address 2" id="checkAddressTwoEdit" name="checkAddressTwoEdit" value="" data-for="checkAddressTwo">
+    								<div class="radio-group clearfix">
+    									<label for="checkAddressTwoHide" class="label-left rb-03">
+    										<input type="radio" name="checkAddressTwo" value="hide" id="checkAddressTwoHide" class="toggle-radios" data-for="checkAddressTwo" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkAddressTwoShow" class="label-right rb-03">
+    										<input type="radio" name="checkAddressTwo" value="show" checked="checked" id="checkAddressTwoShow" class="toggle-radios" data-for="checkAddressTwo" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkAddressTwoRequired" class="label-right rb-03">
+    										<input type="radio" name="checkAddressTwo" value="required" id="checkAddressTwoRequired" class="toggle-radios" data-for="checkAddressTwo" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">City</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="City" id="checkCityEdit" name="checkCityEdit" value="" data-for="checkCity">
+    								<div class="radio-group clearfix">
+    									<label for="checkCityHide" class="label-left rb-03">
+    										<input type="radio" name="checkCity" value="hide" id="checkCityHide" class="toggle-radios" data-for="checkCity" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkCityShow" class="label-right rb-03">
+    										<input type="radio" name="checkCity" value="show" checked="checked" id="checkCityShow" class="toggle-radios" data-for="checkCity" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkCityRequired" class="label-right rb-03">
+    										<input type="radio" name="checkCity" value="required" id="checkCityRequired" class="toggle-radios" data-for="checkCity" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">State</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="State" id="checkStateEdit" name="checkStateEdit" value="" data-for="checkState">
+    								<div class="radio-group clearfix">
+    									<label for="checkStateHide" class="label-left rb-03">
+    										<input type="radio" name="checkState" value="hide" id="checkStateHide" class="toggle-radios" data-for="checkState" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkStateShow" class="label-right rb-03">
+    										<input type="radio" name="checkState" value="show" checked="checked" id="checkStateShow" class="toggle-radios" data-for="checkState" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkStateRequired" class="label-right rb-03">
+    										<input type="radio" name="checkState" value="required" id="checkStateRequired" class="toggle-radios" data-for="checkState" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Country</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Country" id="checkCountryEdit" name="checkCountryEdit" value="" data-for="checkCountry">
+    								<div class="radio-group clearfix">
+    									<label for="checkCountryHide" class="label-left rb-03">
+    										<input type="radio" name="checkCountry" value="hide" id="checkCountryHide" class="toggle-radios" data-for="checkCountry" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkCountryShow" class="label-right rb-03">
+    										<input type="radio" name="checkCountry" value="show" checked="checked" id="checkCountryShow" class="toggle-radios" data-for="checkCountry" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkCountryRequired" class="label-right rb-03">
+    										<input type="radio" name="checkCountry" value="required" id="checkCountryRequired" class="toggle-radios" data-for="checkCountry" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Zip</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Zip" id="checkZipEdit" name="checkZipEdit" value="" data-for="checkZip">
+    								<div class="radio-group clearfix">
+    									<label for="checkZipHide" class="label-left rb-03">
+    										<input type="radio" name="checkZip" value="hide" id="checkZipHide" class="toggle-radios" data-for="checkZip" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkZipShow" class="label-right rb-03">
+    										<input type="radio" name="checkZip" value="show" checked="checked" id="checkZipShow" class="toggle-radios" data-for="checkZip" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkZipRequired" class="label-right rb-03">
+    										<input type="radio" name="checkZip" value="required" id="checkZipRequired" class="toggle-radios" data-for="checkZip" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Zip plus 4</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Zip plus 4" id="checkZipFourEdit" name="checkZipFourEdit" value="" data-for="checkZipFour">
+    								<div class="radio-group clearfix">
+    									<label for="checkZipFourHide" class="label-left rb-03">
+    										<input type="radio" name="checkZipFour" value="hide" id="checkZipFourHide" class="toggle-radios" data-for="checkZipFour" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkZipFourShow" class="label-right rb-03">
+    										<input type="radio" name="checkZipFour" value="show" checked="checked" id="checkZipFourShow" class="toggle-radios" data-for="checkZipFour" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkZipFourRequired" class="label-right rb-03">
+    										<input type="radio" name="checkZipFour" value="required" id="checkZipFourRequired" class="toggle-radios" data-for="checkZipFour" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Email address</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Email addres" id="checkEmailEdit" name="checkEmailEdit" value="" data-for="checkEmail">
+    								<div class="radio-group clearfix">
+    									<label for="checkEmailHide" class="label-left rb-03">
+    										<input type="radio" name="checkEmail" value="hide" id="checkEmailHide" class="toggle-radios" data-for="checkEmail" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkEmailShow" class="label-right rb-03">
+    										<input type="radio" name="checkEmail" value="show" checked="checked" id="checkEmailShow" class="toggle-radios" data-for="checkEmail" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkEmailRequired" class="label-right rb-03">
+    										<input type="radio" name="checkEmail" value="required" id="checkEmailRequired" class="toggle-radios" data-for="checkEmail" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="accordion-item" data-accordion-item>
+    							<a href="#" class="accordion-title">Phone number</a>
+    							<div class="accordion-content" data-tab-content>
+    								<input type="text" placeholder="Phone number" id="checkPhoneEdit" name="checkPhoneEdit" value="" data-for="checkPhone">
+    								<div class="radio-group clearfix">
+    									<label for="checkPhoneHide" class="label-left rb-03">
+    										<input type="radio" name="checkPhone" value="hide" id="checkPhoneHide" class="toggle-radios" data-for="checkPhone" data-remove="show" data-set="hide">
+    										<span>Hide</span>
+    									</label>
+    									<label for="checkPhoneShow" class="label-right rb-03">
+    										<input type="radio" name="checkPhone" value="show" checked="checked" id="checkPhoneShow" class="toggle-radios" data-for="checkPhone" data-remove="hide" data-set="show">
+    										<span>Show</span>
+    									</label>
+    									<label for="checkPhoneRequired" class="label-right rb-03">
+    										<input type="radio" name="checkPhone" value="required" id="checkPhoneRequired" class="toggle-radios" data-for="checkPhone" data-remove="hide" data-set="show" data-require="true">
+    										<span>Require</span>
+    									</label>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="tabs-panel" id="stylesList">
+    					<h5>Colors</h5>
+    					<div class="float-left small-12">
+    						<label for="buttonColor">Button Background</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="buttonColor" name="buttonColor" value="#0000ee">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex small-6" placeholder="Must be a Hexidecimal value [#0000ee]" id="buttonColorValue" name="buttonColorValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="buttonColorHighlight">Button Background : Hover</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="buttonColorHighlight" name="buttonColorHighlight" value="#486cee">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#486cee]" id="buttonColorHighlightValue" name="buttonColorHighlightValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="buttonFontColor">Button Text</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="buttonFontColor" name="buttonFontColor" value="#fefefe">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#fefefe]" id="buttonFontColorValue" name="buttonFontColorValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="buttonFontColorHighlight">Button Text : Hover</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="buttonFontColorHighlight" name="buttonFontColorHighlight" value="#fefefe">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#fefefe]" id="buttonFontColorHighlightValue" name="buttonFontColorHighlightValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="backgroundColor">Field Background</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="backgroundColor" name="backgroundColor" value="#fefefe">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#fefefe]" id="backgroundColorValue" name="backgroundColorValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="backgroundColorHighlight">Field Background : Hover</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="backgroundColorHighlight" name="backgroundColorHighlight" value="#fefefe">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#fefefe]" id="backgroundColorHighlightValue" name="backgroundColorHighlightValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="borderColor">Field Border</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="borderColor" name="borderColor" value="#cccccc">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#cccccc]" id="borderColorValue" name="borderColorValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="borderColorHighlight">Field Border : Hover</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="borderColorHighlight" name="borderColorHighlight" value="#0000ee">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#0000ee]" id="borderColorHighlightValue" name="borderColorHighlightValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="inputColor">Field Text</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="inputColor" name="inputColor" value="#666666">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#666666]" id="inputColorValue" name="inputColorValue" value="">
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="labelColor">Label Text</label>
+    						<div class="float-left small-6">
+    							<input type="text" class="color" id="labelColor" name="labelColor" value="#666666">
+    						</div>
+    						<div class="float-left small-6">
+    							<input type="text" class="hex" placeholder="Must be a Hexidecimal value [#666666]" id="labelColorValue" name="labelColorValue" value="">
+    						</div>
+    					</div>
+    					<h5>Typography</h5>
+    					<div class="float-left small-12">
+    						<label for="fontUrl">Custom Font URL</label>
+    						<input type="text" placeholder="https://fonts.googleapis.com/css?family=Lato" id="fontUrl" name="fontUrl" value="">
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="fontStack">Font Stack</label>
+    						<input type="text" placeholder="'Lato', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif" id="fontStack" name="fontStack" value="">
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="fontWeight">Font Weight</label>
+    						<div class="clear select-after">
+    							<select name="fontWeight" id="fontWeight">
+    								<option value="normal" selected="selected">normal</option>
+    								<option value="bold">bold</option>
+    								<option value="bolder">bolder</option>
+    								<option value="lighter">lighter</option>
+    							</select>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="inputFontSize">Input Font Size</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="inputFontSize" name="inputFontSize" min="10" max="24" step="1" value="16"></div>
+    							<div id="inputFontSizeValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="labelFontSize">Label Font Size</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="labelFontSize" name="labelFontSize" min="10" max="24" step="1" value="12"></div>
+    							<div id="labelFontSizeValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="textTransform">Label Text Transformation</label>
+    						<div class="clear select-after">
+    							<select name="textTransform" id="textTransform">
+    								<option value="none" selected="selected">none</option>
+    								<option value="capitalize">capitalize</option>
+    								<option value="lowercase">lowercase</option>
+    								<option value="uppercase">uppercase</option>
+    							</select>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="lineHeight">Line Height</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="lineHeight" name="lineHeight" min="1" max="3" step="0.1" value="1.8"></div>
+    							<div id="lineHeightValue" class="float-right rangeValue small-2 text-right"><span class="value"></span></div>
+    						</div>
+    					</div>
+    					<h5>Input Display</h5>
+    					<div class="float-left small-12">
+    						<label for="borderRadius">Border Radius</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="borderRadius" name="borderRadius" min="0" max="40" step="1" value="3"></div>
+    							<div id="borderRadiusValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="borderStyle">Border Style</label>
+    						<div class="clear select-after">
+    							<select name="borderStyle" id="borderStyle">
+    								<option value="none">none</option>
+    								<option value="dashed">dashed</option>
+    								<option value="double">double</option>
+    								<option value="dotted">dotted</option>
+    								<option value="groove">groove</option>
+    								<option value="initial">initial</option>
+    								<option value="inset">inset</option>
+    								<option value="outset">outset</option>
+    								<option value="ridge">ridge</option>
+    								<option value="solid" selected="selected">solid</option>
+    							</select>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="borderWidth">Border Width</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="borderWidth" name="borderWidth" min="0" max="10" step="1" value="1"></div>
+    							<div id="borderWidthValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="boxShadow">Box Shadow</label>
+    						<div id="boxShadow" class="radio-group clearfix">
+    							<label for="boxShadowHide" class="label-left rb-02">
+    								<input type="radio" name="boxShadowVisible" value="hide" id="boxShadowHide" class="toggle-radios">
+    								<span>Hide</span>
+    							</label>
+    							<label for="boxShadowShow" class="label-right rb-02">
+    								<input type="radio" name="boxShadowVisible" value="show" checked="checked" id="boxShadowShow" class="toggle-radios">
+    								<span>Show</span>
+    							</label>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="buttonLock">Button Lock Icon</label>
+    						<div id="buttonLock" class="radio-group clearfix">
+    							<label for="buttonLockHide" class="label-left rb-02">
+    								<input type="radio" name="buttonLockVisible" value="hide" id="buttonLockHide" class="toggle-radios" data-for=".buttonLockIcon" data-remove="show" data-set="hide">
+    								<span>Hide</span>
+    							</label>
+    							<label for="buttonLockShow" class="label-right rb-02">
+    								<input type="radio" name="buttonLockVisible" value="show" checked="checked" id="buttonLockShow" class="toggle-radios" data-for=".buttonLockIcon" data-remove="hide" data-set="show">
+    								<span>Show</span>
+    							</label>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="fieldHeight">Field Height</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="fieldHeight" name="fieldHeight" min="0" max="80" step="1" value="40"></div>
+    							<div id="fieldHeightValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="fieldPadding">Field Padding</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="fieldPadding" name="fieldPadding" min="0" max="30" step="1" value="10"></div>
+    							<div id="fieldPaddingValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    					<div class="float-left small-12">
+    						<label for="fieldSpacing">Field Spacing</label>
+    						<div class="rangeSlider">
+    							<div class="float-left small-10"><input type="range" class="range" id="fieldSpacing" name="fieldSpacing" min="0" max="30" step="1" value="10"></div>
+    							<div id="fieldSpacingValue" class="float-right rangeValue small-2 text-right"><span class="value"></span>px</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<input type="text" class="hide" name="customStyleSheet" id="customStyleSheet" hidden="hidden">
+    		</form>
+    
+    		<footer class="">
+    			<button id="resetForm" class="button secondary small-3 has-tip right" data-tooltip aria-haspopup="true" data-disable-hover="false" data-template="<div class='tooltip resetForm right'></div>" title="Reset all Fields &amp; Styles to their default values."><i class="fa fa-undo" onclick="return false;"></i></button>
+    			<button id="previewWidth" class="button secondary small-3 has-tip right" data-tooltip aria-haspopup="true" data-disable-hover="false" data-template="<div class='tooltip previewWidth right'></div>" data-toggle="previewWidthPop" title="Preview the form at different widths."><i class="fa fa-tablet"></i></button>
+    			<div class="dropdown-pane top" id="previewWidthPop" data-dropdown data-v-offset="0" data-close-on-click="true">
+    				<ul class="tabs" data-tabs id="previewSizes">
+    					<li class="tabs-title"><a href="#previewLarge" aria-selected="true" data-size="1400"><i class="fa fa-laptop"></i></a></li>
+    					<li class="tabs-title is-active"><a href="#previewMedium" data-size="840"><i class="fa fa-tablet"></i></a></li>
+    					<li class="tabs-title"><a href="#previewSmall" data-size="520"><i class="fa fa-mobile"></i></a></li>
+    				</ul>
+    				<div class="tabs-content" data-tabs-content="previewSizes" id="previewInfo">
+    					<div class="tabs-panel" id="previewLarge">
+    						<h3>Large</h3>
+    						1050px +
+    					</div>
+    					<div class="tabs-panel is-active" id="previewMedium">
+    						<h3>Medium</h3>
+    						700px - 1049px
+    					</div>
+    					<div class="tabs-panel" id="previewSmall">
+    						<h3>Small</h3>
+    						< 700px
+    					</div>
+    				</div>
+    			</div>
+    			<button id="formCode" class="button secondary small-3 has-tip right" data-tooltip aria-haspopup="true" data-disable-hover="false" data-template="<div class='tooltip formCode right'></div>" data-toggle="formCodePop" title="Get the code needed to integrate your form."><i class="fa fa-code"></i></button>
+    			<div class="dropdown-pane top" id="formCodePop" data-dropdown data-auto-focus="true" data-v-offset="0" data-close-on-click="true">
+    				<ul class="tabs" data-tabs id="formCodeTabs">
+    					<li class="tabs-title is-active"><a href="#cardOnlyFormCode" aria-selected="true">Card only</a></li>
+    					<li class="tabs-title"><a href="#checkOnlyFormCode">Check Only</a></li>
+    					<li class="tabs-title"><a href="#combinedFormCode">Combined</a></li>
+    				</ul>
+    				<div class="tabs-content" data-tabs-content="formCodeTabs" id="formCodeInfo">
+    					<div class="tabs-panel is-active" id="cardOnlyFormCode">
+    						<p>Use the following code to embed your customized Card Payment form on your own webpage.</p>
+    						<div class="callout">
+    							&#60;iframe src=“https://www.pdcflow.com/5195/cardForm”>&#60;/iframe>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    						<p>Use the link code below to redirect users to a payment form hosted on our servers.</p>
+    						<div class="callout">
+    							&#60;a src=“https://www.pdcflow.com/5195/cardForm”>Pay Now&#60;/a>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    					</div>
+    					<div class="tabs-panel" id="checkOnlyFormCode">
+    						<p>Use the following code to embed your customized Check Payment form on your own webpage.</p>
+    						<div class="callout">
+    							&#60;iframe src=“https://www.pdcflow.com/5195/cardForm”>&#60;/iframe>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    						<p>Use the link code below to redirect users to a payment form hosted on our servers.</p>
+    						<div class="callout">
+    							&#60;a src=“https://www.pdcflow.com/5195/cardForm”>Pay Now&#60;/a>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    					</div>
+    					<div class="tabs-panel" id="combinedFormCode">
+    						<p>Use the following code to embed your customized Combined Payment form on your own webpage.</p>
+    						<div class="callout">
+    							&#60;iframe src=“https://www.pdcflow.com/5195/cardForm”>&#60;/iframe>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    						<p>Use the link code below to redirect users to a payment form hosted on our servers.</p>
+    						<div class="callout">
+    							&#60;a src=“https://www.pdcflow.com/5195/cardForm”>Pay Now&#60;/a>
+    						</div>
+    						<button class="small expanded button">Copy code</button>
+    					</div>
+    				</div>
+    			</div>
+    			<button id="saveForm" class="button small-3 has-tip right" data-tooltip aria-haspopup="true" data-disable-hover="false" data-template="<div class='tooltip saveForm right'></div>" title="Save often to avoid loosing your changes."><i class="fa fa-save"></i></button>
+    		</footer>
+    
+    	</aside>
+    	<main id="preview">
+    		<div id="sizer" class="">
+    			<!-- #pdcForm is the first div that should be included in the iframe page. The class(es) included on that div will determine which form [card or check, +combined] will be displayed. An example iframe page can be found at /foundation-6/dist/iframe.html -->
+    			<div id="pdcForm" class="creditCard">
+    				<form id="cardForm">
+    					<div class="paymentContainer">
+    						<div class="paymentInfo">
+    							<p>Payment Information</p>
+    							<div class="formElement" id="cardPayment">
+    								<label class="required" for="card-paymentAmount">Payment ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="card-paymentAmount" id="card-paymentAmount" placeholder="50.00" tabindex="1">
+    							</div>
+    							<div class="formElement" id="cardFee">
+    								<label class="required" for="card-feeAmount">Fee ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="card-feeAmount" id="card-feeAmount" placeholder="10.00" tabindex="2">
+    							</div>
+    							<div class="formElement" id="cardTotal">
+    								<label class="required" for="card-totalAmount">Total ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="card-totalAmount" id="card-totalAmount" placeholder="60.00" tabindex="3">
+    							</div>
+    							<div class="formElement paymentType">
+    								<label>Payment type:</label>
+    								<label for="cardPaymentTypeCard" class="radioButton">
+    									<input type="radio" name="cardPaymentType" value="creditCard" checked="checked" id="cardPaymentTypeCard" class="" onclick="swapClass('pdcForm','check','creditCard'); return false;">
+    									<span>Card</span>
+    								</label>
+    								<label for="cardPaymentTypeCheck" class="radioButton">
+    									<input type="radio" name="cardPaymentType" value="check" id="cardPaymentTypeCheck" class="" onclick="swapClass('pdcForm','creditCard','check'); return false;">
+    									<span>Check</span>
+    								</label>
+    							</div>
+    							<div id="cardInfo">
+    								<div class="formElement" id="cardNumber">
+    									<label class="required" for="creditCardNumber">Card number</label>
+    									<input type="text" class="customStyled" name="cardNumber" id="creditCardNumber" placeholder="1234567890123456" tabindex="4">
+    								</div>
+    								<div class="formElement" id="cardExpiration">
+    									<label class="required" for="expMonth">Expiration date</label>
+    									<div class="selectArrow">
+    										<select name="expMonth" id="expMonth" tabindex="5">
+    											<option value="" selected="selected">month</option>
+    											<option value="01">01</option>
+    											<option value="02">02</option>
+    											<option value="03">03</option>
+    											<option value="04">04</option>
+    											<option value="05">05</option>
+    											<option value="06">06</option>
+    											<option value="07">07</option>
+    											<option value="08">08</option>
+    											<option value="09">09</option>
+    											<option value="10">10</option>
+    											<option value="11">11</option>
+    											<option value="12">12</option>
+    										</select>
+    									</div>
+    									<div class="selectArrow">
+    										<select name="expYear" id="expYear" tabindex="6">
+    											<option value="" selected="selected">year</option>
+    											<option value="2017">2017</option>
+    											<option value="2018">2018</option>
+    											<option value="2019">2019</option>
+    											<option value="2020">2020</option>
+    											<option value="2021">2021</option>
+    											<option value="2022">2022</option>
+    											<option value="2023">2023</option>
+    											<option value="3024">2024</option>
+    											<option value="2025">2025</option>
+    											<option value="2026">2026</option>
+    											<option value="2027">2027</option>
+    											<option value="2028">2028</option>
+    										</select>
+    									</div>
+    								</div>
+    								<div class="formElement" id="cardSecurityCode">
+    									<label for="securityCode">Security code</label>
+    									<input type="text" class="customStyled" name="securityCode" id="securityCode" placeholder="123" tabindex="7">
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="formElement" id="cardFirstName">
+    						<label class="required" for="card-firstName">First name</label>
+    						<input type="text" class="customStyled fieldSync" name="card-firstName" id="card-firstName" placeholder="First Name" tabindex="9">
+    					</div>
+    					<div class="formElement" id="cardLastName">
+    						<label class="required" for="card-lastName">Last name</label>
+    						<input type="text" class="customStyled fieldSync" name="card-lastName" id="card-lastName" placeholder="Last Name" tabindex="10">
+    					</div>
+    					<div class="formElement" id="cardAccount">
+    						<label class="required" for="card-accountNumber">Account number</label>
+    						<input type="text" class="customStyled fieldSync" name="card-accountNumber" id="card-accountNumber" placeholder="12345" tabindex="11">
+    					</div>
+    					<div class="formElement" id="cardMemo">
+    						<label for="card-memo">Memo</label>
+    						<input type="text" class="customStyled fieldSync" name="card-memo" id="card-memo" placeholder="Memo" tabindex="12">
+    					</div>
+    					<div class="" id="cardAddress">
+    						<div class="formElement" id="cardAddressOne">
+    							<label for="card-streetAddressOne">Address 1</label>
+    							<input type="text" class="customStyled fieldSync" name="card-streetAddressOne" id="card-streetAddressOne" placeholder="123 Main St" tabindex="13">
+    						</div>
+    						<div class="formElement" id="cardAddressTwo">
+    							<label for="card-streetAddressTwo">Address 2</label>
+    							<input type="text" class="customStyled fieldSync" name="card-streetAddressTwo" id="card-streetAddressTwo" placeholder="Apt 7A" tabindex="14">
+    						</div>
+    						<div class="formElement" id="cardCity">
+    							<label for="card-city">City</label>
+    							<input type="text" class="customStyled fieldSync" name="card-city" id="card-city" placeholder="My Town" tabindex="15">
+    						</div>
+    						<div class="formElement" id="cardStateCountry">
+    							<div class="formElement" id="cardState">
+    								<label for="card-state">State</label>
+    								<div class="selectArrow">
+    									<select class="fieldSync" name="card-state" id="card-state" tabindex="16">
+    										<option value="" selected="selected">--</option>
+    										<option value="AL">Alabama</option>
+    										<option value="AK">Alaska</option>
+    										<option value="AS">American Samoa</option>
+    										<option value="AZ">Arizona</option>
+    										<option value="AR">Arkansas</option>
+    										<option value="CA">California</option>
+    										<option value="CO">Colorado</option>
+    										<option value="CT">Connecticut</option>
+    										<option value="DE">Delaware</option>
+    										<option value="DC">District of Columbia</option>
+    										<option value="FL">Florida</option>
+    										<option value="GA">Georgia</option>
+    										<option value="GU">Guam</option>
+    										<option value="HI">Hawaii</option>
+    										<option value="ID">Idaho</option>
+    										<option value="IL">Illinois</option>
+    										<option value="IN">Indiana</option>
+    										<option value="IA">Iowa</option>
+    										<option value="KS">Kansas</option>
+    										<option value="KY">Kentucky</option>
+    										<option value="LA">Louisiana</option>
+    										<option value="ME">Maine</option>
+    										<option value="MD">Maryland</option>
+    										<option value="MA">Massachusetts</option>
+    										<option value="MI">Michigan</option>
+    										<option value="MN">Minnesota</option>
+    										<option value="MS">Mississippi</option>
+    										<option value="MO">Missouri</option>
+    										<option value="MT">Montana</option>
+    										<option value="NE">Nebraska</option>
+    										<option value="NV">Nevada</option>
+    										<option value="NH">New Hampshire</option>
+    										<option value="NJ">New Jersey</option>
+    										<option value="NM">New Mexico</option>
+    										<option value="NY">New York</option>
+    										<option value="NC">North Carolina</option>
+    										<option value="ND">North Dakota</option>
+    										<option value="MP">Northern Mariana Islands</option>
+    										<option value="OH">Ohio</option>
+    										<option value="OK">Oklahoma</option>
+    										<option value="OR">Oregon</option>
+    										<option value="PA">Pennsylvania</option>
+    										<option value="PR">Puerto Rico</option>
+    										<option value="RI">Rhode Island</option>
+    										<option value="SC">South Carolina</option>
+    										<option value="SD">South Dakota</option>
+    										<option value="TN">Tennessee</option>
+    										<option value="TX">Texas</option>
+    										<option value="UM">U.S. Minor Outlying Islands</option>
+    										<option value="UT">Utah</option>
+    										<option value="VT">Vermont</option>
+    										<option value="VI">Virgin Islands</option>
+    										<option value="VA">Virginia</option>
+    										<option value="WA">Washington</option>
+    										<option value="WV">West Virginia</option>
+    										<option value="WI">Wisconsin</option>
+    										<option value="WY">Wyoming</option>
+    									</select>
+    								</div>
+    							</div>
+    							<div class="formElement" id="cardCountry">
+    								<label for="card-country">Country</label>
+    								<div class="selectArrow">
+    									<select class="fieldSync" name="card-country" id="card-country" tabindex="17">
+    										<option value="">--</option>
+    										<option value="AF">Afghanistan</option>
+    										<option value="AL">Albania</option>
+    										<option value="DZ">Algeria</option>
+    										<option value="AS">American Samoa</option>
+    										<option value="AD">Andorra</option>
+    										<option value="AO">Angola</option>
+    										<option value="AI">Anguilla</option>
+    										<option value="AQ">Antarctica</option>
+    										<option value="AG">Antigua and Barbuda</option>
+    										<option value="AR">Argentina</option>
+    										<option value="AM">Armenia</option>
+    										<option value="AW">Aruba</option>
+    										<option value="AU">Australia</option>
+    										<option value="AT">Austria</option>
+    										<option value="AZ">Azerbaijan</option>
+    										<option value="BS">Bahamas</option>
+    										<option value="BH">Bahrain</option>
+    										<option value="BD">Bangladesh</option>
+    										<option value="BB">Barbados</option>
+    										<option value="BY">Belarus</option>
+    										<option value="BE">Belgium</option>
+    										<option value="BZ">Belize</option>
+    										<option value="BJ">Benin</option>
+    										<option value="BM">Bermuda</option>
+    										<option value="BT">Bhutan</option>
+    										<option value="BO">Bolivia</option>
+    										<option value="BA">Bosnia and Herzegowina</option>
+    										<option value="BW">Botswana</option>
+    										<option value="BV">Bouvet Island</option>
+    										<option value="BR">Brazil</option>
+    										<option value="IO">British Indian Ocean Territory</option>
+    										<option value="BN">Brunei Darussalam</option>
+    										<option value="BG">Bulgaria</option>
+    										<option value="BF">Burkina Faso</option>
+    										<option value="BI">Burundi</option>
+    										<option value="KH">Cambodia</option>
+    										<option value="CM">Cameroon</option>
+    										<option value="CA">Canada</option>
+    										<option value="CV">Cape Verde</option>
+    										<option value="KY">Cayman Islands</option>
+    										<option value="CF">Central African Republic</option>
+    										<option value="TD">Chad</option>
+    										<option value="CL">Chile</option>
+    										<option value="CN">China</option>
+    										<option value="CX">Christmas Island</option>
+    										<option value="CC">Cocos (Keeling) Islands</option>
+    										<option value="CO">Colombia</option>
+    										<option value="KM">Comoros</option>
+    										<option value="CG">Congo</option>
+    										<option value="CD">Congo, the Democratic Republic of the</option>
+    										<option value="CK">Cook Islands</option>
+    										<option value="CR">Costa Rica</option>
+    										<option value="CI">Cote d'Ivoire</option>
+    										<option value="HR">Croatia (Hrvatska)</option>
+    										<option value="CU">Cuba</option>
+    										<option value="CY">Cyprus</option>
+    										<option value="CZ">Czech Republic</option>
+    										<option value="DK">Denmark</option>
+    										<option value="DJ">Djibouti</option>
+    										<option value="DM">Dominica</option>
+    										<option value="DO">Dominican Republic</option>
+    										<option value="TP">East Timor</option>
+    										<option value="EC">Ecuador</option>
+    										<option value="EG">Egypt</option>
+    										<option value="SV">El Salvador</option>
+    										<option value="GQ">Equatorial Guinea</option>
+    										<option value="ER">Eritrea</option>
+    										<option value="EE">Estonia</option>
+    										<option value="ET">Ethiopia</option>
+    										<option value="FK">Falkland Islands (Malvinas)</option>
+    										<option value="FO">Faroe Islands</option>
+    										<option value="FJ">Fiji</option>
+    										<option value="FI">Finland</option>
+    										<option value="FR">France</option>
+    										<option value="FX">France, Metropolitan</option>
+    										<option value="GF">French Guiana</option>
+    										<option value="PF">French Polynesia</option>
+    										<option value="TF">French Southern Territories</option>
+    										<option value="GA">Gabon</option>
+    										<option value="GM">Gambia</option>
+    										<option value="GE">Georgia</option>
+    										<option value="DE">Germany</option>
+    										<option value="GH">Ghana</option>
+    										<option value="GI">Gibraltar</option>
+    										<option value="GR">Greece</option>
+    										<option value="GL">Greenland</option>
+    										<option value="GD">Grenada</option>
+    										<option value="GP">Guadeloupe</option>
+    										<option value="GU">Guam</option>
+    										<option value="GT">Guatemala</option>
+    										<option value="GN">Guinea</option>
+    										<option value="GW">Guinea-Bissau</option>
+    										<option value="GY">Guyana</option>
+    										<option value="HT">Haiti</option>
+    										<option value="HM">Heard and Mc Donald Islands</option>
+    										<option value="VA">Holy See (Vatican City State)</option>
+    										<option value="HN">Honduras</option>
+    										<option value="HK">Hong Kong</option>
+    										<option value="HU">Hungary</option>
+    										<option value="IS">Iceland</option>
+    										<option value="IN">India</option>
+    										<option value="ID">Indonesia</option>
+    										<option value="IR">Iran (Islamic Republic of)</option>
+    										<option value="IQ">Iraq</option>
+    										<option value="IE">Ireland</option>
+    										<option value="IL">Israel</option>
+    										<option value="IT">Italy</option>
+    										<option value="JM">Jamaica</option>
+    										<option value="JP">Japan</option>
+    										<option value="JO">Jordan</option>
+    										<option value="KZ">Kazakhstan</option>
+    										<option value="KE">Kenya</option>
+    										<option value="KI">Kiribati</option>
+    										<option value="KP">Korea, Democratic People's Republic of</option>
+    										<option value="KR">Korea, Republic of</option>
+    										<option value="KW">Kuwait</option>
+    										<option value="KG">Kyrgyzstan</option>
+    										<option value="LA">Lao People's Democratic Republic</option>
+    										<option value="LV">Latvia</option>
+    										<option value="LB">Lebanon</option>
+    										<option value="LS">Lesotho</option>
+    										<option value="LR">Liberia</option>
+    										<option value="LY">Libyan Arab Jamahiriya</option>
+    										<option value="LI">Liechtenstein</option>
+    										<option value="LT">Lithuania</option>
+    										<option value="LU">Luxembourg</option>
+    										<option value="MO">Macau</option>
+    										<option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+    										<option value="MG">Madagascar</option>
+    										<option value="MW">Malawi</option>
+    										<option value="MY">Malaysia</option>
+    										<option value="MV">Maldives</option>
+    										<option value="ML">Mali</option>
+    										<option value="MT">Malta</option>
+    										<option value="MH">Marshall Islands</option>
+    										<option value="MQ">Martinique</option>
+    										<option value="MR">Mauritania</option>
+    										<option value="MU">Mauritius</option>
+    										<option value="YT">Mayotte</option>
+    										<option value="MX">Mexico</option>
+    										<option value="FM">Micronesia, Federated States of</option>
+    										<option value="MD">Moldova, Republic of</option>
+    										<option value="MC">Monaco</option>
+    										<option value="MN">Mongolia</option>
+    										<option value="MS">Montserrat</option>
+    										<option value="MA">Morocco</option>
+    										<option value="MZ">Mozambique</option>
+    										<option value="MM">Myanmar</option>
+    										<option value="NA">Namibia</option>
+    										<option value="NR">Nauru</option>
+    										<option value="NP">Nepal</option>
+    										<option value="NL">Netherlands</option>
+    										<option value="AN">Netherlands Antilles</option>
+    										<option value="NC">New Caledonia</option>
+    										<option value="NZ">New Zealand</option>
+    										<option value="NI">Nicaragua</option>
+    										<option value="NE">Niger</option>
+    										<option value="NG">Nigeria</option>
+    										<option value="NU">Niue</option>
+    										<option value="NF">Norfolk Island</option>
+    										<option value="MP">Northern Mariana Islands</option>
+    										<option value="NO">Norway</option>
+    										<option value="OM">Oman</option>
+    										<option value="PK">Pakistan</option>
+    										<option value="PW">Palau</option>
+    										<option value="PA">Panama</option>
+    										<option value="PG">Papua New Guinea</option>
+    										<option value="PY">Paraguay</option>
+    										<option value="PE">Peru</option>
+    										<option value="PH">Philippines</option>
+    										<option value="PN">Pitcairn</option>
+    										<option value="PL">Poland</option>
+    										<option value="PT">Portugal</option>
+    										<option value="PR">Puerto Rico</option>
+    										<option value="QA">Qatar</option>
+    										<option value="RE">Reunion</option>
+    										<option value="RO">Romania</option>
+    										<option value="RU">Russian Federation</option>
+    										<option value="RW">Rwanda</option>
+    										<option value="KN">Saint Kitts and Nevis</option>
+    										<option value="LC">Saint LUCIA</option>
+    										<option value="VC">Saint Vincent and the Grenadines</option>
+    										<option value="WS">Samoa</option>
+    										<option value="SM">San Marino</option>
+    										<option value="ST">Sao Tome and Principe</option>
+    										<option value="SA">Saudi Arabia</option>
+    										<option value="SN">Senegal</option>
+    										<option value="SC">Seychelles</option>
+    										<option value="SL">Sierra Leone</option>
+    										<option value="SG">Singapore</option>
+    										<option value="SK">Slovakia (Slovak Republic)</option>
+    										<option value="SI">Slovenia</option>
+    										<option value="SB">Solomon Islands</option>
+    										<option value="SO">Somalia</option>
+    										<option value="ZA">South Africa</option>
+    										<option value="GS">South Georgia and the South Sandwich Islands</option>
+    										<option value="ES">Spain</option>
+    										<option value="LK">Sri Lanka</option>
+    										<option value="SH">St. Helena</option>
+    										<option value="PM">St. Pierre and Miquelon</option>
+    										<option value="SD">Sudan</option>
+    										<option value="SR">Suriname</option>
+    										<option value="SJ">Svalbard and Jan Mayen Islands</option>
+    										<option value="SZ">Swaziland</option>
+    										<option value="SE">Sweden</option>
+    										<option value="CH">Switzerland</option>
+    										<option value="SY">Syrian Arab Republic</option>
+    										<option value="TW">Taiwan, Province of China</option>
+    										<option value="TJ">Tajikistan</option>
+    										<option value="TZ">Tanzania, United Republic of</option>
+    										<option value="TH">Thailand</option>
+    										<option value="TG">Togo</option>
+    										<option value="TK">Tokelau</option>
+    										<option value="TO">Tonga</option>
+    										<option value="TT">Trinidad and Tobago</option>
+    										<option value="TN">Tunisia</option>
+    										<option value="TR">Turkey</option>
+    										<option value="TM">Turkmenistan</option>
+    										<option value="TC">Turks and Caicos Islands</option>
+    										<option value="TV">Tuvalu</option>
+    										<option value="UG">Uganda</option>
+    										<option value="UA">Ukraine</option>
+    										<option value="AE">United Arab Emirates</option>
+    										<option value="GB">United Kingdom</option>
+    										<option value="US" selected="selected">United States</option>
+    										<option value="UM">United States Minor Outlying Islands</option>
+    										<option value="UY">Uruguay</option>
+    										<option value="UZ">Uzbekistan</option>
+    										<option value="VU">Vanuatu</option>
+    										<option value="VE">Venezuela</option>
+    										<option value="VN">Vietnam</option>
+    										<option value="VG">Virgin Islands (British)</option>
+    										<option value="VI">Virgin Islands (U.S.)</option>
+    										<option value="WF">Wallis and Futuna Islands</option>
+    										<option value="EH">Western Sahara</option>
+    										<option value="YE">Yemen</option>
+    										<option value="YU">Yugoslavia</option>
+    										<option value="ZM">Zambia</option>
+    										<option value="ZW">Zimbabwe</option>
+    									</select>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="formElement" id="cardZips">
+    							<div class="formElement" id="cardZip">
+    								<label for="card-zip">Zip</label>
+    								<input type="number" class="customStyled fieldSync" name="card-zip" id="card-zip" placeholder="12345" tabindex="18">
+    							</div>
+    							<div class="formElement" id="cardZipFour">
+    								<label for="card-zipPlusFour">Zip plus 4</label>
+    								<input type="number" class="customStyled fieldSync" name="card-zipPlusFour" id="card-zipPlusFour" placeholder="6789" tabindex="19">
+    							</div>
+    						</div>
+    					</div>
+    					<div class="formElement" id="cardEmail">
+    						<label for="card-email">Email address</label>
+    						<input type="email" class="customStyled fieldSync" name="card-email" id="card-email" placeholder="email@email.com" tabindex="20">
+    					</div>
+    					<div class="formElement" id="cardPhone">
+    						<label for="card-phoneNumber">Phone number</label>
+    						<input type="tel" class="customStyled fieldSync" name="card-phoneNumber" id="card-phoneNumber" placeholder="5551234567" tabindex="21">
+    					</div>
+    					<div class="formElement" id="cardSubmit">
+    						<button name="processCard" type="submit" id="processCard" class="" tabindex="22"><small class="buttonLockIcon">&#128274;</small>Process card</button>
+    						<p class="required">Required fields</p>
+    					</div>
+    				</form>
+    				<form id="checkForm">
+    					<div class="paymentContainer">
+    						<div class="paymentInfo">
+    							<p>Payment Information</p>
+    							<div class="formElement" id="checkPayment">
+    								<label class="required" for="check-paymentAmount">Payment ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="check-paymentAmount" id="check-paymentAmount" placeholder="50.00" tabindex="1">
+    							</div>
+    							<div class="formElement" id="checkFee">
+    								<label class="required" for="check-feeAmount">Fee ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="check-feeAmount" id="check-feeAmount" placeholder="10.00" tabindex="2">
+    							</div>
+    							<div class="formElement" id="checkTotal">
+    								<label class="required" for="check-totalAmount">Total ($)</label>
+    								<input type="text" class="customStyled fieldSync" name="check-totalAmount" id="check-totalAmount" placeholder="60.00" tabindex="3">
+    							</div>
+    							<div class="formElement paymentType">
+    								<label>Payment type:</label>
+    								<label for="checkPaymentTypeCard" class="radioButton">
+    									<input type="radio" name="checkPaymentType" value="creditCard" id="checkPaymentTypeCard" class="" onclick="swapClass('pdcForm','check','creditCard'); return false;">
+    									<span>Card</span>
+    								</label>
+    								<label for="checkPaymentTypeCheck" class="radioButton">
+    									<input type="radio" name="checkPaymentType" value="check" checked="checked" id="checkPaymentTypeCheck" class="" onclick="swapClass('pdcForm','creditCard','check'); return false;">
+    									<span>Check</span>
+    								</label>
+    							</div>
+    							<div id="checkBankInfo">
+    								<div class="formElement" id="checkBankAccount">
+    									<label class="required" for="bankAccount">Bank account number</label>
+    									<input type="text" class="customStyled" name="bankAccount" id="bankAccount" placeholder="123456" tabindex="4">
+    								</div>
+    								<div class="formElement" id="checkBankAccountConfirm">
+    									<label class="required" for="bankAccountConfirm">Confirm bank account number</label>
+    									<input type="text" class="customStyled" name="bankAccountConfirm" id="bankAccountConfirm" placeholder="123456" tabindex="5">
+    								</div>
+    								<div class="formElement" id="checkBankRouting">
+    									<label class="required" for="bankRouting">Bank routing number</label>
+    									<input type="text" class="customStyled" name="bankRouting" id="bankRouting" placeholder="123456789" tabindex="6">
+    								</div>
+    								<div class="formElement" id="checkCheckNumber">
+    									<label class="required" for="checkNumber">Check number</label>
+    									<input type="text" class="customStyled" name="checkNumber" id="checkNumber" placeholder="0000" tabindex="7">
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="formElement" id="checkFirstName">
+    						<label class="required" for="check-firstName">First name</label>
+    						<input type="text" class="customStyled fieldSync" name="check-firstName" id="check-firstName" placeholder="First Name" tabindex="8">
+    					</div>
+    					<div class="formElement" id="checkLastName">
+    						<label class="required" for="check-lastName">Last name</label>
+    						<input type="text" class="customStyled fieldSync" name="check-lastName" id="check-lastName" placeholder="Last Name" tabindex="9">
+    					</div>
+    					<div class="formElement" id="checkAccount">
+    						<label class="required" for="check-accountNumber">Account number</label>
+    						<input type="text" class="customStyled fieldSync" name="check-accountNumber" id="check-accountNumber" placeholder="12345" tabindex="10">
+    					</div>
+    					<div class="formElement" id="checkMemo">
+    						<label for="check-memo">Memo</label>
+    						<input type="text" class="customStyled fieldSync" name="check-memo" id="check-memo" placeholder="Memo" tabindex="11">
+    					</div>
+    					<div class="" id="checkAddress">
+    						<div class="formElement" id="checkAddressOne">
+    							<label for="check-streetAddressOne">Address 1</label>
+    							<input type="text" class="customStyled fieldSync" name="check-streetAddressOne" id="check-streetAddressOne" placeholder="123 Main St" tabindex="12">
+    						</div>
+    						<div class="formElement" id="checkAddressTwo">
+    							<label for="check-streetAddressTwo">Address 2</label>
+    							<input type="text" class="customStyled fieldSync" name="check-streetAddressTwo" id="check-streetAddressTwo" placeholder="Apt 7A" tabindex="13">
+    						</div>
+    						<div class="formElement" id="checkCity">
+    							<label for="check-city">City</label>
+    							<input type="text" class="customStyled fieldSync" name="check-city" id="check-city" placeholder="My Town" tabindex="14">
+    						</div>
+    						<div class="formElement" id="checkStateCountry">
+    							<div class="formElement" id="checkState">
+    								<label for="check-state">State</label>
+    								<div class="selectArrow">
+    									<select class="fieldSync" name="check-state" id="check-state" tabindex="15">
+    										<option value="" selected="selected">--</option>
+    										<option value="AL">Alabama</option>
+    										<option value="AK">Alaska</option>
+    										<option value="AS">American Samoa</option>
+    										<option value="AZ">Arizona</option>
+    										<option value="AR">Arkansas</option>
+    										<option value="CA">California</option>
+    										<option value="CO">Colorado</option>
+    										<option value="CT">Connecticut</option>
+    										<option value="DE">Delaware</option>
+    										<option value="DC">District of Columbia</option>
+    										<option value="FL">Florida</option>
+    										<option value="GA">Georgia</option>
+    										<option value="GU">Guam</option>
+    										<option value="HI">Hawaii</option>
+    										<option value="ID">Idaho</option>
+    										<option value="IL">Illinois</option>
+    										<option value="IN">Indiana</option>
+    										<option value="IA">Iowa</option>
+    										<option value="KS">Kansas</option>
+    										<option value="KY">Kentucky</option>
+    										<option value="LA">Louisiana</option>
+    										<option value="ME">Maine</option>
+    										<option value="MD">Maryland</option>
+    										<option value="MA">Massachusetts</option>
+    										<option value="MI">Michigan</option>
+    										<option value="MN">Minnesota</option>
+    										<option value="MS">Mississippi</option>
+    										<option value="MO">Missouri</option>
+    										<option value="MT">Montana</option>
+    										<option value="NE">Nebraska</option>
+    										<option value="NV">Nevada</option>
+    										<option value="NH">New Hampshire</option>
+    										<option value="NJ">New Jersey</option>
+    										<option value="NM">New Mexico</option>
+    										<option value="NY">New York</option>
+    										<option value="NC">North Carolina</option>
+    										<option value="ND">North Dakota</option>
+    										<option value="MP">Northern Mariana Islands</option>
+    										<option value="OH">Ohio</option>
+    										<option value="OK">Oklahoma</option>
+    										<option value="OR">Oregon</option>
+    										<option value="PA">Pennsylvania</option>
+    										<option value="PR">Puerto Rico</option>
+    										<option value="RI">Rhode Island</option>
+    										<option value="SC">South Carolina</option>
+    										<option value="SD">South Dakota</option>
+    										<option value="TN">Tennessee</option>
+    										<option value="TX">Texas</option>
+    										<option value="UM">U.S. Minor Outlying Islands</option>
+    										<option value="UT">Utah</option>
+    										<option value="VT">Vermont</option>
+    										<option value="VI">Virgin Islands</option>
+    										<option value="VA">Virginia</option>
+    										<option value="WA">Washington</option>
+    										<option value="WV">West Virginia</option>
+    										<option value="WI">Wisconsin</option>
+    										<option value="WY">Wyoming</option>
+    									</select>
+    								</div>
+    							</div>
+    							<div class="formElement" id="checkCountry">
+    								<label for="check-country">Country</label>
+    								<div class="selectArrow">
+    									<select class="fieldSync" name="check-country" id="check-country" tabindex="16">
+    										<option value="">--</option>
+    										<option value="AF">Afghanistan</option>
+    										<option value="AL">Albania</option>
+    										<option value="DZ">Algeria</option>
+    										<option value="AS">American Samoa</option>
+    										<option value="AD">Andorra</option>
+    										<option value="AO">Angola</option>
+    										<option value="AI">Anguilla</option>
+    										<option value="AQ">Antarctica</option>
+    										<option value="AG">Antigua and Barbuda</option>
+    										<option value="AR">Argentina</option>
+    										<option value="AM">Armenia</option>
+    										<option value="AW">Aruba</option>
+    										<option value="AU">Australia</option>
+    										<option value="AT">Austria</option>
+    										<option value="AZ">Azerbaijan</option>
+    										<option value="BS">Bahamas</option>
+    										<option value="BH">Bahrain</option>
+    										<option value="BD">Bangladesh</option>
+    										<option value="BB">Barbados</option>
+    										<option value="BY">Belarus</option>
+    										<option value="BE">Belgium</option>
+    										<option value="BZ">Belize</option>
+    										<option value="BJ">Benin</option>
+    										<option value="BM">Bermuda</option>
+    										<option value="BT">Bhutan</option>
+    										<option value="BO">Bolivia</option>
+    										<option value="BA">Bosnia and Herzegowina</option>
+    										<option value="BW">Botswana</option>
+    										<option value="BV">Bouvet Island</option>
+    										<option value="BR">Brazil</option>
+    										<option value="IO">British Indian Ocean Territory</option>
+    										<option value="BN">Brunei Darussalam</option>
+    										<option value="BG">Bulgaria</option>
+    										<option value="BF">Burkina Faso</option>
+    										<option value="BI">Burundi</option>
+    										<option value="KH">Cambodia</option>
+    										<option value="CM">Cameroon</option>
+    										<option value="CA">Canada</option>
+    										<option value="CV">Cape Verde</option>
+    										<option value="KY">Cayman Islands</option>
+    										<option value="CF">Central African Republic</option>
+    										<option value="TD">Chad</option>
+    										<option value="CL">Chile</option>
+    										<option value="CN">China</option>
+    										<option value="CX">Christmas Island</option>
+    										<option value="CC">Cocos (Keeling) Islands</option>
+    										<option value="CO">Colombia</option>
+    										<option value="KM">Comoros</option>
+    										<option value="CG">Congo</option>
+    										<option value="CD">Congo, the Democratic Republic of the</option>
+    										<option value="CK">Cook Islands</option>
+    										<option value="CR">Costa Rica</option>
+    										<option value="CI">Cote d'Ivoire</option>
+    										<option value="HR">Croatia (Hrvatska)</option>
+    										<option value="CU">Cuba</option>
+    										<option value="CY">Cyprus</option>
+    										<option value="CZ">Czech Republic</option>
+    										<option value="DK">Denmark</option>
+    										<option value="DJ">Djibouti</option>
+    										<option value="DM">Dominica</option>
+    										<option value="DO">Dominican Republic</option>
+    										<option value="TP">East Timor</option>
+    										<option value="EC">Ecuador</option>
+    										<option value="EG">Egypt</option>
+    										<option value="SV">El Salvador</option>
+    										<option value="GQ">Equatorial Guinea</option>
+    										<option value="ER">Eritrea</option>
+    										<option value="EE">Estonia</option>
+    										<option value="ET">Ethiopia</option>
+    										<option value="FK">Falkland Islands (Malvinas)</option>
+    										<option value="FO">Faroe Islands</option>
+    										<option value="FJ">Fiji</option>
+    										<option value="FI">Finland</option>
+    										<option value="FR">France</option>
+    										<option value="FX">France, Metropolitan</option>
+    										<option value="GF">French Guiana</option>
+    										<option value="PF">French Polynesia</option>
+    										<option value="TF">French Southern Territories</option>
+    										<option value="GA">Gabon</option>
+    										<option value="GM">Gambia</option>
+    										<option value="GE">Georgia</option>
+    										<option value="DE">Germany</option>
+    										<option value="GH">Ghana</option>
+    										<option value="GI">Gibraltar</option>
+    										<option value="GR">Greece</option>
+    										<option value="GL">Greenland</option>
+    										<option value="GD">Grenada</option>
+    										<option value="GP">Guadeloupe</option>
+    										<option value="GU">Guam</option>
+    										<option value="GT">Guatemala</option>
+    										<option value="GN">Guinea</option>
+    										<option value="GW">Guinea-Bissau</option>
+    										<option value="GY">Guyana</option>
+    										<option value="HT">Haiti</option>
+    										<option value="HM">Heard and Mc Donald Islands</option>
+    										<option value="VA">Holy See (Vatican City State)</option>
+    										<option value="HN">Honduras</option>
+    										<option value="HK">Hong Kong</option>
+    										<option value="HU">Hungary</option>
+    										<option value="IS">Iceland</option>
+    										<option value="IN">India</option>
+    										<option value="ID">Indonesia</option>
+    										<option value="IR">Iran (Islamic Republic of)</option>
+    										<option value="IQ">Iraq</option>
+    										<option value="IE">Ireland</option>
+    										<option value="IL">Israel</option>
+    										<option value="IT">Italy</option>
+    										<option value="JM">Jamaica</option>
+    										<option value="JP">Japan</option>
+    										<option value="JO">Jordan</option>
+    										<option value="KZ">Kazakhstan</option>
+    										<option value="KE">Kenya</option>
+    										<option value="KI">Kiribati</option>
+    										<option value="KP">Korea, Democratic People's Republic of</option>
+    										<option value="KR">Korea, Republic of</option>
+    										<option value="KW">Kuwait</option>
+    										<option value="KG">Kyrgyzstan</option>
+    										<option value="LA">Lao People's Democratic Republic</option>
+    										<option value="LV">Latvia</option>
+    										<option value="LB">Lebanon</option>
+    										<option value="LS">Lesotho</option>
+    										<option value="LR">Liberia</option>
+    										<option value="LY">Libyan Arab Jamahiriya</option>
+    										<option value="LI">Liechtenstein</option>
+    										<option value="LT">Lithuania</option>
+    										<option value="LU">Luxembourg</option>
+    										<option value="MO">Macau</option>
+    										<option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+    										<option value="MG">Madagascar</option>
+    										<option value="MW">Malawi</option>
+    										<option value="MY">Malaysia</option>
+    										<option value="MV">Maldives</option>
+    										<option value="ML">Mali</option>
+    										<option value="MT">Malta</option>
+    										<option value="MH">Marshall Islands</option>
+    										<option value="MQ">Martinique</option>
+    										<option value="MR">Mauritania</option>
+    										<option value="MU">Mauritius</option>
+    										<option value="YT">Mayotte</option>
+    										<option value="MX">Mexico</option>
+    										<option value="FM">Micronesia, Federated States of</option>
+    										<option value="MD">Moldova, Republic of</option>
+    										<option value="MC">Monaco</option>
+    										<option value="MN">Mongolia</option>
+    										<option value="MS">Montserrat</option>
+    										<option value="MA">Morocco</option>
+    										<option value="MZ">Mozambique</option>
+    										<option value="MM">Myanmar</option>
+    										<option value="NA">Namibia</option>
+    										<option value="NR">Nauru</option>
+    										<option value="NP">Nepal</option>
+    										<option value="NL">Netherlands</option>
+    										<option value="AN">Netherlands Antilles</option>
+    										<option value="NC">New Caledonia</option>
+    										<option value="NZ">New Zealand</option>
+    										<option value="NI">Nicaragua</option>
+    										<option value="NE">Niger</option>
+    										<option value="NG">Nigeria</option>
+    										<option value="NU">Niue</option>
+    										<option value="NF">Norfolk Island</option>
+    										<option value="MP">Northern Mariana Islands</option>
+    										<option value="NO">Norway</option>
+    										<option value="OM">Oman</option>
+    										<option value="PK">Pakistan</option>
+    										<option value="PW">Palau</option>
+    										<option value="PA">Panama</option>
+    										<option value="PG">Papua New Guinea</option>
+    										<option value="PY">Paraguay</option>
+    										<option value="PE">Peru</option>
+    										<option value="PH">Philippines</option>
+    										<option value="PN">Pitcairn</option>
+    										<option value="PL">Poland</option>
+    										<option value="PT">Portugal</option>
+    										<option value="PR">Puerto Rico</option>
+    										<option value="QA">Qatar</option>
+    										<option value="RE">Reunion</option>
+    										<option value="RO">Romania</option>
+    										<option value="RU">Russian Federation</option>
+    										<option value="RW">Rwanda</option>
+    										<option value="KN">Saint Kitts and Nevis</option>
+    										<option value="LC">Saint LUCIA</option>
+    										<option value="VC">Saint Vincent and the Grenadines</option>
+    										<option value="WS">Samoa</option>
+    										<option value="SM">San Marino</option>
+    										<option value="ST">Sao Tome and Principe</option>
+    										<option value="SA">Saudi Arabia</option>
+    										<option value="SN">Senegal</option>
+    										<option value="SC">Seychelles</option>
+    										<option value="SL">Sierra Leone</option>
+    										<option value="SG">Singapore</option>
+    										<option value="SK">Slovakia (Slovak Republic)</option>
+    										<option value="SI">Slovenia</option>
+    										<option value="SB">Solomon Islands</option>
+    										<option value="SO">Somalia</option>
+    										<option value="ZA">South Africa</option>
+    										<option value="GS">South Georgia and the South Sandwich Islands</option>
+    										<option value="ES">Spain</option>
+    										<option value="LK">Sri Lanka</option>
+    										<option value="SH">St. Helena</option>
+    										<option value="PM">St. Pierre and Miquelon</option>
+    										<option value="SD">Sudan</option>
+    										<option value="SR">Suriname</option>
+    										<option value="SJ">Svalbard and Jan Mayen Islands</option>
+    										<option value="SZ">Swaziland</option>
+    										<option value="SE">Sweden</option>
+    										<option value="CH">Switzerland</option>
+    										<option value="SY">Syrian Arab Republic</option>
+    										<option value="TW">Taiwan, Province of China</option>
+    										<option value="TJ">Tajikistan</option>
+    										<option value="TZ">Tanzania, United Republic of</option>
+    										<option value="TH">Thailand</option>
+    										<option value="TG">Togo</option>
+    										<option value="TK">Tokelau</option>
+    										<option value="TO">Tonga</option>
+    										<option value="TT">Trinidad and Tobago</option>
+    										<option value="TN">Tunisia</option>
+    										<option value="TR">Turkey</option>
+    										<option value="TM">Turkmenistan</option>
+    										<option value="TC">Turks and Caicos Islands</option>
+    										<option value="TV">Tuvalu</option>
+    										<option value="UG">Uganda</option>
+    										<option value="UA">Ukraine</option>
+    										<option value="AE">United Arab Emirates</option>
+    										<option value="GB">United Kingdom</option>
+    										<option value="US" selected="selected">United States</option>
+    										<option value="UM">United States Minor Outlying Islands</option>
+    										<option value="UY">Uruguay</option>
+    										<option value="UZ">Uzbekistan</option>
+    										<option value="VU">Vanuatu</option>
+    										<option value="VE">Venezuela</option>
+    										<option value="VN">Vietnam</option>
+    										<option value="VG">Virgin Islands (British)</option>
+    										<option value="VI">Virgin Islands (U.S.)</option>
+    										<option value="WF">Wallis and Futuna Islands</option>
+    										<option value="EH">Western Sahara</option>
+    										<option value="YE">Yemen</option>
+    										<option value="YU">Yugoslavia</option>
+    										<option value="ZM">Zambia</option>
+    										<option value="ZW">Zimbabwe</option>
+    									</select>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="formElement" id="checkZips">
+    							<div class="formElement" id="checkZip">
+    								<label for="check-zip">Zip</label>
+    								<input type="text" class="customStyled fieldSync" name="check-zip" id="check-zip" placeholder="12345" tabindex="17">
+    							</div>
+    							<div class="formElement" id="checkZipFour">
+    								<label for="check-zipPlusFour">Zip plus 4</label>
+    								<input type="text" class="customStyled fieldSync" name="check-zipPlusFour" id="check-zipPlusFour" placeholder="6789" tabindex="18">
+    							</div>
+    						</div>
+    					</div>
+    					<div class="formElement" id="checkEmail">
+    						<label for="check-email">Email address</label>
+    						<input type="text" class="customStyled fieldSync" name="check-email" id="check-email" placeholder="email@email.com" tabindex="19">
+    					</div>
+    					<div class="formElement" id="checkPhone">
+    						<label for="check-phoneNumber">Phone number</label>
+    						<input type="text" class="customStyled fieldSync" name="check-phoneNumber" id="check-phoneNumber" placeholder="5551234567" tabindex="20">
+    					</div>
+    					<div class="formElement" id="checkSubmit">
+    						<button name="processCheck" type="submit" id="processCheck" class="" tabindex="21"><small class="buttonLockIcon">&#128274;</small>Process check</button>
+    						<p class="required">Required fields</p>
+    					</div>
+    				</form>
+    				<script type="text/javascript">
+    					// All javascript here is written without the use of jQuery.
+    					function swapClass(e,c,n) {
+    						// This function is used by the Combined form to swap between the Card and Check forms.
+    						swapper = document.getElementById(e);
+    						swapper.className = swapper.className.replace( new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,''+n+'');
+    						syncFields();
+    					};
+    					function syncFields() {
+    						// This function is used to copy the content of duplicated form fields between the Card & Check forms.
+    						var cardInfo = document.getElementById('cardForm');
+    						var cardDisplay = window.getComputedStyle(cardInfo).display;
+    						var cardValues = cardInfo.getElementsByClassName('fieldSync');
+    						var checkInfo = document.getElementById('checkForm');
+    						var checkDisplay = window.getComputedStyle(checkInfo).display;
+    						var checkValues = checkInfo.getElementsByClassName('fieldSync');
+    						if (cardDisplay == 'none') {
+    							// loop through card form fields with fieldSync class then copy values
+    							var properties = Array.prototype.map.call(cardValues, function(el) {
+    								return [el.id,el.value];
+    							});
+    							properties.forEach( function (arrayItem) {
+    								var itemID = arrayItem[0];
+    								var itemValue = arrayItem[1];
+    								var blankID = itemID.split('-').pop();
+    								var checkField = document.getElementById('check-'+blankID);
+    								checkField.value = itemValue;
+    							});
+    						} else if (checkDisplay == 'none') {
+    							// loop through check form fields with fieldSync class then copy values
+    							var properties = Array.prototype.map.call(checkValues, function(el) {
+    								return [el.id,el.value];
+    							});
+    							properties.forEach( function (arrayItem) {
+    								var itemID = arrayItem[0];
+    								var itemValue = arrayItem[1];
+    								var blankID = itemID.split('-').pop();
+    								var checkField = document.getElementById('card-'+blankID);
+    								checkField.value = itemValue;
+    							});
+    						} else {
+    							return false;
+    						};
+    					};
+    				</script>
+    			</div>
+    
+    			<div id="formDisplay">
+    				<!-- The radio buttons at the bottom of the preview area to change which form is being shown. -->
+    				<span>Form Display</span>
+    				<label for="formDisplayCard" class="label-right">
+    					<input type="radio" name="formDisplay" value="creditCard" checked="checked" id="formDisplayCard" class="toggle-radios" data-for="pdcForm" data-remove="check combined" data-set="creditCard">
+    					<span>Card Only</span>
+    				</label>
+    				<label for="formDisplayCheck" class="label-right">
+    					<input type="radio" name="formDisplay" value="check" id="formDisplayCheck" class="toggle-radios" data-for="pdcForm" data-remove="creditCard combined" data-set="check">
+    					<span>Check Only</span>
+    				</label>
+    				<label for="formDisplayCombined" class="label-right">
+    					<input type="radio" name="formDisplay" value="combined" id="formDisplayCombined" class="toggle-radios" data-for="pdcForm" data-remove="" data-set="combined">
+    					<span>Combined</span>
+    				</label>
+    			</div>
+    
+    			<button id="hideEditor" class="button secondary small-3 open has-tip right" data-tooltip aria-haspopup="true" data-disable-hover="false" data-template="<div class='tooltip hideEditor right'></div>" title="Hide or Show the Editor."><i class="fa fa-angle-double-left"></i></button>
+    
+    		</div>
+    	</main>
+    </section>
+    
+    <script>
+    	var accordionToggle = $(".accordionToggle");
+    	var colorPicker = $(".color");
+    	var colorTimer;
+    	var displayRadio = $("#formDisplay input[type=radio]");
+    	var doneTypingInterval = 500;
+    	var fieldsInput = $("#fieldsList .accordion-item input[type=text]");
+    	var fieldsRadio = $("#fieldsList input[type=radio]");
+    	var fieldsSearch = $("#fieldValueSearch");
+    	var hexCode = $(".hex");
+    	var inputRange = $(".range");
+    	var rangeValue = $(".value");
+    	var select = $("select");
+    	var stylesheet = document.styleSheets[6];
+    	var stylesInput = $("#stylesList input");
+    	var stylesRadio = $("#stylesList input[type=radio]");
+    	var typingTimer;
+    
+    	function setStyles() {
+    		// This function will get the values from the Styles fields (or set a default) and then change the custom <style> block to update the preview form. Each group of var/if/stylesheet(s) is for a single feature in the Styles tab.
+    
+    		// Colors
+    
+    		var buttonBackground = $("#buttonColorValue").val();
+    		if (!buttonBackground) {
+    			buttonColor = "#0000ee";
+    		};
+    		stylesheet.cssRules[8].style.backgroundColor=buttonBackground;
+    
+    		var buttonBackgroundHighlight = $("#buttonColorHighlightValue").val();
+    		if (!buttonBackgroundHighlight) {
+    			buttonBackgroundHighlight = "#486cee";
+    		};
+    		stylesheet.cssRules[9].style.backgroundColor=buttonBackgroundHighlight;
+    
+    		var buttonFont = $("#buttonFontColor").val();
+    		if (!buttonBackground) {
+    			buttonColor = "#fefefe";
+    		};
+    		stylesheet.cssRules[8].style.color=buttonFont;
+    
+    		var buttonFontHighlight = $("#buttonFontColorHighlightValue").val();
+    		if (!buttonFontHighlight) {
+    			buttonFontHighlight = "#fefefe";
+    		};
+    		stylesheet.cssRules[9].style.color=buttonFontHighlight;
+    
+    		var backgroundColor = $("#backgroundColorValue").val();
+    		if (!backgroundColor) {
+    			backgroundColor = "#fefefe";
+    		};
+    		stylesheet.cssRules[3].style.backgroundColor=backgroundColor;
+    		stylesheet.cssRules[5].style.backgroundColor=backgroundColor;
+    
+    		var backgroundColorHighlight = $("#backgroundColorHighlight").val();
+    		if (!backgroundColorHighlight) {
+    			backgroundColorHighlight = "#fefefe";
+    		};
+    		stylesheet.cssRules[4].style.backgroundColor=backgroundColorHighlight;
+    		stylesheet.cssRules[6].style.backgroundColor=backgroundColorHighlight;
+    
+    		var borderColor = $("#borderColor").val();
+    		if (!borderColor) {
+    			borderColor = "#cccccc";
+    		};
+    		stylesheet.cssRules[3].style.borderColor=borderColor;
+    		stylesheet.cssRules[5].style.borderColor=borderColor;
+    
+    		var borderColorHighlight = $("#borderColorHighlight").val();
+    		if (!borderColorHighlight) {
+    			borderColorHighlight = "#0000EE";
+    		};
+    		stylesheet.cssRules[4].style.borderColor=borderColorHighlight;
+    		stylesheet.cssRules[6].style.borderColor=borderColorHighlight;
+    
+    		var inputColor = $("#inputColor").val();
+    		if (!inputColor) {
+    			inputColor = "#666666";
+    		};
+    		stylesheet.cssRules[3].style.color=inputColor;
+    		stylesheet.cssRules[5].style.color=inputColor;
+    		stylesheet.cssRules[7].style.color=inputColor;
+    
+    		var labelColor = $("#labelColor").val();
+    		if (!labelColor) {
+    			labelColor = "#666666";
+    		};
+    		stylesheet.cssRules[2].style.color=labelColor;
+    
+    		// Typography
+    
+    		var fontUrl = $("#fontUrl").val();
+    		if (!fontUrl) {
+    			fontUrl = "https://fonts.googleapis.com/css?family=Lato";
+    		};
+    		$("#fontUrlLink").attr("href", fontUrl);
+    
+    		var fontStack = $("#fontStack").val();
+    		if (!fontStack) {
+    			fontStack = "'Lato', 'Helvetica Neue', Helvetica, 'Roboto', Arial, sans-serif";
+    		};
+    		stylesheet.cssRules[0].style.fontFamily=fontStack;
+    
+    		var fontWeight = $("#fontWeight").val();
+    		if (!fontWeight) {
+    			fontWeight = "normal";
+    		};
+    		stylesheet.cssRules[0].style.fontWeight=fontWeight;
+    
+    		var inputFontSize = $("#inputFontSize").val();
+    		if (!inputFontSize) {
+    			inputFontSize = "36px";
+    		};
+    		stylesheet.cssRules[3].style.fontSize=inputFontSize+"px";
+    		stylesheet.cssRules[5].style.fontSize=inputFontSize+"px";
+    		stylesheet.cssRules[8].style.fontSize=inputFontSize+"px";
+    		stylesheet.cssRules[14].style.fontSize=inputFontSize+"px";
+    
+    		var labelFontSize = $("#labelFontSize").val();
+    		if (!labelFontSize) {
+    			labelFontSize = "22px";
+    		};
+    		stylesheet.cssRules[2].style.fontSize=labelFontSize+"px";
+    
+    		var labelTextTransform = $("#textTransform").val();
+    		if (!labelTextTransform) {
+    			labelTextTransform = "none";
+    		};
+    		stylesheet.cssRules[2].style.textTransform=labelTextTransform;
+    
+    		var lineHeight = $("#lineHeight").val();
+    		if (!lineHeight) {
+    			lineHeight = "1.8";
+    		};
+    		stylesheet.cssRules[0].style.lineHeight=lineHeight;
+    
+    		// Input Display
+    
+    		var borderRadius = $("#borderRadius").val();
+    		if (!borderRadius) {
+    			borderRadius = "3px";
+    		} else {
+    			borderRadius += "px";
+    		};
+    		stylesheet.cssRules[3].style.borderRadius=borderRadius;
+    		stylesheet.cssRules[5].style.borderRadius=borderRadius;
+    		stylesheet.cssRules[8].style.borderRadius=borderRadius;
+    		stylesheet.cssRules[13].style.borderRadius=borderRadius;
+    
+    		var borderStyle = $("#borderStyle").val();
+    		if (!borderStyle) {
+    			borderStyle = "solid";
+    		};
+    		stylesheet.cssRules[3].style.borderStyle=borderStyle;
+    		stylesheet.cssRules[5].style.borderStyle=borderStyle;
+    		stylesheet.cssRules[13].style.borderStyle=borderStyle;
+    
+    		var borderWidth = $("#borderWidth").val();
+    		if (!borderWidth) {
+    			borderWidth = "1";
+    		};
+    		stylesheet.cssRules[3].style.borderWidth=borderWidth+"px";
+    		stylesheet.cssRules[5].style.borderWidth=borderWidth+"px";
+    		stylesheet.cssRules[13].style.borderWidth=borderWidth+"px";
+    
+    		var boxShadow = $("#boxShadow input:checked").val();
+    		if (!boxShadow) {
+    			boxShadow = "inset 0 0 4px rgba(10,10,10,0.1)";
+    			boxShadowHover = "0 0 4px rgba(10,10,10,0.15)";
+    		} else if (boxShadow == "hide") {
+    			boxShadow = "none";
+    			boxShadowHover = "none";
+    		} else {
+    			boxShadow = "inset 0 0 4px rgba(10,10,10,0.1)";
+    			boxShadowHover = "0 0 4px rgba(10,10,10,0.15)";
+    		};
+    		stylesheet.cssRules[3].style.boxShadow=boxShadow;
+    		stylesheet.cssRules[4].style.boxShadow=boxShadowHover;
+    		stylesheet.cssRules[5].style.boxShadow=boxShadow;
+    		stylesheet.cssRules[6].style.boxShadow=boxShadowHover;
+    
+    		var buttonLock = $("#buttonLock input:checked").val();
+    		if (!buttonLock) {
+    			buttonLock = "show";
+    		};
+    		$(".buttonLockIcon").removeClass("show hide").addClass(buttonLock);
+    
+    		var fieldHeight = $("#fieldHeight").val();
+    		if (!fieldHeight) {
+    			fieldHeight = "40px";
+    		};
+    		stylesheet.cssRules[3].style.height=fieldHeight+"px";
+    		stylesheet.cssRules[5].style.height=fieldHeight+"px";
+    		stylesheet.cssRules[8].style.height=fieldHeight+"px";
+    
+    		var fieldPadding= $("#fieldPadding").val();
+    		if (!fieldPadding) {
+    			fieldPadding = "10px";
+    		};
+    		stylesheet.cssRules[3].style.padding=fieldPadding+"px";
+    		stylesheet.cssRules[5].style.paddingLeft=fieldPadding+"px";
+    		stylesheet.cssRules[5].style.paddingRight=fieldPadding+"px";
+    		stylesheet.cssRules[8].style.paddingLeft=fieldPadding+"px";
+    		stylesheet.cssRules[8].style.paddingRight=fieldPadding+"px";
+    
+    		var fieldSpacing = $("#fieldSpacing").val();
+    		if (!fieldSpacing) {
+    			fieldSpacing = "10px";
+    		};
+    		stylesheet.cssRules[1].style.padding=fieldSpacing+"px";
+    		stylesheet.cssRules[12].style.padding=fieldSpacing+"px";
+    		stylesheet.cssRules[14].style.paddingLeft=fieldSpacing+"px";
+    		stylesheet.cssRules[14].style.paddingRight=fieldSpacing+"px";
+    
+    	};
+    
+    	// Expand/Collapse all toggle links in the editor for each form section.
+    	accordionToggle.children("a").on("click", function(event) {
+    		thisTarget = "#"+$(this).parent().attr("data-for");
+    		thisClass = $(this).attr("class");
+    		if (thisClass == "expandAll") {
+    			$(thisTarget).foundation('down',$(thisTarget+' .accordion-content'));
+    		} else if (thisClass == "collapseAll") {
+    			$(thisTarget).foundation('up',$(thisTarget+' .accordion-content'));
+    		} else {
+    			return false;
+    		};
+    		event.preventDefault();
+    	});
+    
+    	// Search the Fields default and input values, then hides any that don't match.
+    	fieldsSearch.on("input", function() {
+    		clearTimeout(typingTimer);
+    		fieldValue = $(this).val();
+    		searchItem = $(".accordion-item");
+    		function searchFieldValues() {
+    			searchItem.each( function(index,field) {
+    				fieldDefault = $(this).children("a").text();
+    				fieldCustom = $(this).children("div").children("input[type=text]").val();
+    				if (fieldCustom == null) {
+    					fieldCustom = "";
+    				};
+    				// Convert all strings to lower case before compraing.
+    				if (fieldDefault.toLowerCase().indexOf(fieldValue.toLowerCase()) >= 0) {
+    					$(this).removeClass("hide");
+    				} else if (fieldCustom.toLowerCase().indexOf(fieldValue.toLowerCase()) >= 0) {
+    					$(this).removeClass("hide");
+    				} else {
+    					$(this).addClass("hide");
+    				};
+    			});
+    		};
+    		// Wait 0.5sec after each change before running the search.
+    		typingTimer = setTimeout(searchFieldValues, doneTypingInterval);
+    	});
+    	// Updates the preview form label with the value from the related input field.
+    	function updateField(fieldDefault, fieldUpdate, fieldValue) {
+    		if (fieldValue == "") {
+    			$(fieldUpdate).html(fieldDefault);
+    		} else {
+    			$(fieldUpdate).html(fieldValue);
+    		};
+    	};
+    	fieldsInput.on("input", function() {
+    		clearTimeout(typingTimer);
+    		fieldDefault = $(this).attr("placeholder");
+    		fieldUpdate = "#"+$(this).attr("data-for")+" > label";
+    		fieldValue = $(this).val();
+    		function updateFieldTimeout() {
+    			updateField(fieldDefault, fieldUpdate, fieldValue);
+    		}
+    		typingTimer = setTimeout(updateFieldTimeout, doneTypingInterval);
+    	});
+    	// Toggles changes in the preview form based on radio button selection in the Fields tab.
+    	fieldsRadio.click( function() {
+    		target = "#"+$(this).attr("data-for");
+    		remClass = $(this).attr("data-remove");
+    		setClass = $(this).attr("data-set");
+    		reqClass = $(this).attr("data-require");
+    		$(target).removeClass(remClass).addClass(setClass);
+    		if(!reqClass) {
+    			$(target).children("label").removeClass("required");
+    		} else {
+    			$(target).children("label").addClass("required");
+    		};
+    	});
+    
+    	// Updates the preview form when a text field is changed.
+    	stylesInput.on("input", function() {
+    		clearTimeout(typingTimer);
+    		clearTimeout(colorTimer);
+    		typingTimer = setTimeout(setStyles, doneTypingInterval);
+    	});
+    	// Updates the preview form when a select menu is changed in the Styles tab.
+    	select.change( function() {
+    		setStyles();
+    	});
+    	// Updates the preview form when a radio button is selected in the Styles tab.
+    	stylesRadio.click( function() {
+    		target = $(this).attr("data-for");
+    		remClass = $(this).attr("data-remove");
+    		setClass = $(this).attr("data-set");
+    		setValue = $(this).val();
+    		if (target == null) {
+    			setStyles();
+    		} else {
+    			$(target).removeClass(remClass).addClass(setClass);
+    		};
+    	});
+    	// Updates the preview form when a range slider is changed in the Styles tab.
+    	inputRange.on("input", function() {
+    		rangeValue = $(this).parent().siblings().children(rangeValue);
+    		$(rangeValue).html($(this).val());
+    		setStyles();
+    	});
+    	// Styles tab color picker setup code.
+    	colorPicker.spectrum({
+    		localStorageKey: "PDCflow.FormDesigner",
+    		preferredFormat: "hex",
+    		showInitial: true,
+    		showPalette: true,
+    		palette: ['#030303', '#333333', '#666666', '#999999', '#cccccc','#e8e8e8', '#fefefe','#0000ee','#486cee'],
+    		selectionPalette: [],
+    		maxSelectionSize: 10,
+    		hideAfterPaletteSelect: true,
+    		clickoutFiresChange: false,
+    		hide: function(color) {
+    			hexCode = $(this).parent().siblings().children(hexCode);
+    			$(hexCode).val(color);
+    			$(this).val(color);
+    		},
+    		move: function(color) {
+    			hexCode = $(this).parent().siblings().children(hexCode);
+    			$(hexCode).val(color);
+    			$(this).val(color);
+    		}
+    	});
+    	// Updates the preview form and text input when a color is selected in a picker.
+    	colorPicker.change( function() {
+    		hexCode = $(this).parent().siblings().children(hexCode);
+    		$(hexCode).val($(this).val());
+    		setStyles();
+    	});
+    	// Updates the preview form and color picker when a hex color is manually typed into the text input.
+    	hexCode.on("input", function() {
+    		clearTimeout(colorTimer);
+    		hexCodeLocal = $(this);
+    		setColorPicker = function() {
+    			colorPicker = $(hexCodeLocal).parent().siblings().children(colorPicker);
+    			$(colorPicker).val($(hexCodeLocal).val());
+    			$(colorPicker).spectrum("set",$(hexCodeLocal).val());
+    		};
+    		colorTimer = setTimeout(setColorPicker, doneTypingInterval);
+    	});
+    
+    	// Radio buttons at bottom of preview area that change which form is being previewed.
+    	displayRadio.click( function() {
+    		target = "#"+$(this).attr("data-for");
+    		remClass = $(this).attr("data-remove");
+    		setClass = $(this).attr("data-set");
+    		$(target).removeClass(remClass).addClass(setClass);
+    	});
+    
+    	// Prevent the buttons in the editor footer from gaining focus on click – to get the hover tooltip to go away.
+    	$("#editor footer button").click( function() {
+    		$(this).blur();
+    	});
+    
+    	// Resets the Fields, Styles, and preview to default values.
+    	function resetForm() {
+    		fieldsInput.val("");
+    		fieldsInput.each( function() {
+    			fieldDefault = $(this).attr("placeholder");
+    			fieldUpdate = "#"+$(this).attr("data-for")+" > label";
+    			fieldValue = $(this).attr("placeholder");
+    			updateField(fieldDefault, fieldUpdate, fieldValue);
+    		});
+    		$("#fieldsList .radio-group input[value='show']").click();
+    		$("#buttonColor").val("#0000ee");
+    		$("#buttonColor").spectrum("set","#0000ee");
+    		$("#buttonColorValue").val("#0000ee");
+    		$("#buttonColorHighlight").val("#486cee");
+    		$("#buttonColorHighlight").spectrum("set","#486cee");
+    		$("#buttonColorHighlightValue").val("#486cee");
+    		$("#buttonFontColor").val("#fefefe");
+    		$("#buttonFontColor").spectrum("set","#fefefe");
+    		$("#buttonFontColorValue").val("#fefefe");
+    		$("#buttonFontColorHighlight").val("#fefefe");
+    		$("#buttonFontColorHighlight").spectrum("set","#fefefe");
+    		$("#buttonFontColorHighlightValue").val("#fefefe");
+    		$("#backgroundColor").val("#fefefe");
+    		$("#backgroundColor").spectrum("set","#fefefe");
+    		$("#backgroundColorValue").val("#fefefe");
+    		$("#backgroundColorHighlight").val("#fefefe");
+    		$("#backgroundColorHighlight").spectrum("set","#fefefe");
+    		$("#backgroundColorHighlightValue").val("#fefefe");
+    		$("#borderColor").val("#cccccc");
+    		$("#borderColor").spectrum("set","#cccccc");
+    		$("#borderColorValue").val("#cccccc");
+    		$("#borderColorHighlight").val("#0000ee");
+    		$("#borderColorHighlight").spectrum("set","#0000ee");
+    		$("#borderColorHighlightValue").val("#0000ee");
+    		$("#inputColor").val("#666666");
+    		$("#inputColor").spectrum("set","#666666");
+    		$("#inputColorValue").val("#666666");
+    		$("#labelColor").val("#666666");
+    		$("#labelColor").spectrum("set","#666666");
+    		$("#labelColorValue").val("#666666");
+    		$("#fontUrl").val("");
+    		$("#fontStack").val("");
+    		$("#fontWeight").val("normal");
+    		$("#inputFontSize").val("16");
+    		$("#inputFontSizeValue").children(rangeValue).html("16");
+    		$("#labelFontSize").val("12");
+    		$("#labelFontSizeValue").children(rangeValue).html("12");
+    		$("#textTransform").val("none");
+    		$("#lineHeight").val("1.8");
+    		$("#lineHeightValue").children(rangeValue).html("1.8");
+    		$("#borderRadius").val("3");
+    		$("#borderRadiusValue").children(rangeValue).html("3");
+    		$("#borderStyle").val("solid");
+    		$("#borderWidth").val("1");
+    		$("#borderWidthValue").children(rangeValue).html("1");
+    		$("#boxShadowShow").click();
+    		$("#buttonLockShow").click();
+    		$("#fieldHeight").val("40");
+    		$("#fieldHeightValue").children(rangeValue).html("40");
+    		$("#fieldPadding").val("10");
+    		$("#fieldPaddingValue").children(rangeValue).html("10");
+    		$("#fieldSpacing").val("10");
+    		$("#fieldSpacingValue").children(rangeValue).html("10");
+    		setStyles();
+    	}
+    	$("#resetForm").click( function() {
+    		// $("<div>Are you sure you want to reset the form to its default state?<br>This will remove ALL customizations that you have made.</div>").dialog(
+    		// {
+    		// 	title: "You're about to reset the form!",
+    		// 	resizable: false,
+    		// 	modal: true,
+    		// 	show: "fade",
+    		// 	hide: "fade",
+    		// 	minWidth: 450,
+    		// 	buttons:
+    		// 	{
+    		// 		"Cancel": function() {
+    		// 			$(this).dialog("close");
+    		// 		},
+    		// 		"Reset form": function() {
+    		// 			$(this).dialog("close");
+    		// 			resetForm();
+    		// 			notificationDisplay("Form was reset.", "success");
+    		// 		}
+    		// 	}
+    		// });
+    		resetForm();
+    		return false;
+    	});
+    
+    	// Changes the preview form to imitate different screen widths.
+    	$("#previewSizes a").click( function() {
+    		active = $(this).attr("id");
+    		activeInfo = $("#previewInfo #" + active + "Info");
+    		previewIcon = $(this).children("i").attr("class");
+    		$("#previewWidth i").attr("class",previewIcon);
+    		$("#previewSizes").on("change.zf.tabs", function() {
+    			setPreview();
+    		});
+    	});
+    	function setPreview() {
+    		activeSize = $("#previewSizes li.is-active a").attr("data-size");
+    		previewContainer = $("#preview").width();
+    		previewSizer = $("#sizer");
+    		if (parseInt(activeSize) > parseInt(previewContainer)) {
+    			previewWidth = "100%";
+    		} else {
+    			previewWidth = activeSize+"px";
+    		};
+    		previewSizer.css("max-width",activeSize+"px");
+    		// Need to do testing to make sure that these values always produce the desird layout of the preview form.
+    		if ((parseInt(activeSize) < 720) || (parseInt(previewContainer) < 720)) {
+    			previewSizer.removeClass().addClass("smallForm");
+    		} else if ((parseInt(activeSize) < 1080) || (parseInt(previewContainer) < 1080)) {
+    			previewSizer.removeClass().addClass("mediumForm");
+    		} else {
+    			previewSizer.removeClass().addClass("largeForm");
+    		};
+    	};
+    
+    	// The save button for the Form Designer. Currently it will make sure that all styles have been updated, then copy the custom <style> block to a hidden input.
+    	$("#saveForm").click( function() {
+    		setStyles();
+    		customSaver = $("#customStyleSheet");
+    		customSaver.val("<style scoped type='text/css'>");
+    		$(stylesheet.cssRules).each( function(css) {
+    			style = $(this)[0].cssText;
+    			customSaver.val(customSaver.val()+style);
+    		});
+    		customSaver.val(customSaver.val()+"</style>");
+    		return false;
+    	});
+    
+    	// Hides the editor increasing the width for the preview form, so that the actual laptop/desktop form can be viewed.
+    	$("#hideEditor").click( function() {
+    		if($(this).hasClass("open")) {
+    			$(this).children("i").removeClass("fa-angle-double-left").addClass("fa-angle-double-right");
+    			$("#editor").animate({left:"-340px"}, 500);
+    			$("#preview").animate(
+    				{
+    					marginLeft:"0"
+    				},
+    				{
+    					duration: 500,
+    					step: function() {
+    						// Update the preview form width imitation
+    						setPreview();
+    					}
+    				}
+    			);
+    		} else {
+    			$(this).children("i").removeClass("fa-angle-double-right").addClass("fa-angle-double-left");
+    			$("#editor").animate({left:"0"}, 500);
+    			$("#preview").animate(
+    				{
+    					marginLeft:"340px"
+    				},
+    				{
+    					duration: 500,
+    					step:function() {
+    						// Update the preview form width imitation
+    						setPreview();
+    					}
+    				}
+    			);
+    		};
+    		$(this).toggleClass("open");
+    		$(this).blur();
+    		return false;
+    	});
+    
+    	$(document).ready( function() {
+    		// Set range values equal to the initial slider positions
+    		rangeValue.html( function() {
+    			setValue = $(this).parent().siblings().children(inputRange).val();
+    			return setValue;
+    		});
+    		// Set the color text inputs to the initial color picker value.
+    		hexCode.val( function() {
+    			setValue = $(this).parent().siblings().children(".color").val();
+    			return setValue;
+    		});
+    		// Set the initial width of the preview form.
+    		setPreview();
+    		// Makes sure that the custom styles are set.
+    		setStyles();
+    		// Set the Field labels
+    		fieldsInput.each(function() {
+    			fieldValue = $(this).val();
+    			fieldDefault = $(this).attr("placeholder");
+    			fieldUpdate = "#"+$(this).attr("data-for")+" > label";
+    			updateField(fieldDefault, fieldUpdate, fieldValue);
+    		});
+    	});
+    
+    	$(window).resize( function() {
+    		// Update the preview form width imitation when the screen is resized.
+    		setPreview();
+    	});
+    </script>
+    
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
